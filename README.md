@@ -1,8 +1,10 @@
-# Plylogenetic Trees Visualization
+# Phylogenetic Trees Visualization
+
+This is the code and documentation for the project I created in 2006 as a minor project.
 
 ## Documentation
 
-Please read doc/README.md
+Please read [project documentation](doc/README.md).
 
 ## Sequence Alignment
 
