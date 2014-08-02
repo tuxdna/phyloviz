@@ -4,7 +4,7 @@ This is the code and documentation for the project I created in 2006 as a minor 
 
 ## Documentation
 
-Please read [project documentation](doc/README.md).
+Please read README.md and [project documentation](doc/index.asciidoc).
 
 ## Sequence Alignment
 
