@@ -1,0 +1,2 @@
+CFLAGS+=-g -lm
+ph2iv: ph2iv.c

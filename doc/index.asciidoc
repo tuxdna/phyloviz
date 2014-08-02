@@ -1,0 +1,828 @@
+= Generation and Visualization of Phylogenetic Trees
+
+Minor Project, December 2006
+
+Generation of Phylogenetic Trees and a study of DNA/Protein Sequence Classification Systems
+(Bioinformatics / Computational Biology)
+
+Submitted by:
+Saleem Ahmed Ansari, on Thursday 15th, December 2006
+
+Department of Computer Engineering,
+Faculty of Engineering and Technology,
+Jamia Millia Islamia,
+New Delhi – 110025
+
+== Abstract
+
+**Abstract**
+
+The problem of DNA/Protein Classification using computational capabilities is a very broad problem and is still in a stage of infancy. Most of the classification, apparent, is based on the manual work already done in the past. In fact it is not a problem of classification or prediction, in the real sense. This is due to the fact that data to be tackled is, when taken per sequence, does not have a distinct finite set of features, as expected in case of classification or prediction. The data to be dealt in here is sequence data which is produced  as a result of evolution in living organisms. One of the ways in which the classification is done is by estimating the relative measure of evolution among the organisms. This relative evolution is obtained by the process of aligning the sequences which help in identifying homology among various species. The result of this estimation leads to the generation of a tree of evolution, called Phylogenetic tree, of species. This project entitled “Generation of Phylogenetic Trees and a study of DNA/Protein Sequence Classification Systems”, deals in the generation and visualization of such trees.
+
+== Ceritification
+
+CERTIFICATE
+
+
+This is to certify that the project entitled “Generation of Phylogenetic Trees and a study of DNA/Protein Sequence Classification Systems”, which is being submitted by Saleem Ahmed Ansari (03-CSS-44) for the partial fulfillment for the award of the degree of B. Tech.(Bachelor of Technology) in Computer Engineering to the Faculty of Engineering and Technology, Jamia Millia Islamia, New Delhi is a record of bona-fide work carried out by him under my supervision. To the best of my knowledge the present work has not been submitted to any other institute for the award of the degree or the diploma.
+
+
+----
+Mr. Md. Fahim( Lecturer )
+Department  Of Computer Engineering
+Jamia Millia Islamia
+New Delhi - 110025
+----
+
+== Acknowledgement
+
+Acknowledgement
+
+First of all I would like to thank Prof. Andrew M. Lynn (Assistant Professor) at Centre for Computational Biology, Jawaharlal Nehru University, New Delhi and India Linux Users Group, Delhi (ILUG-D) for holding a “Workshop on Bioinformatics” in which I actively participated and learned the idea of working on the project “Generation of Phylogenetic Trees and a study of DNA/Protein Sequence Classification Systems”.  Their deep knowledge, enthusiasm and emphasis on this subject to be taken as a part of academics by Computer Science students was the continual source of inspiration to me. 
+
+I would like to take this opportunity to express my heartfelt indebtedness to my Project Supervisor, Mr. Md. Fahim (Lecturer), Department of Computer Engineering, Faculty of engineering and Technology, Jamia Millia Islamia. His genuine  concern and deep involvement in my endeavor gave me the courage to continue unabated, even when the going got tough.  No words can truly convey my gratitude. 
+
+I am also obliged to Prof. M. N. Doja, the Head of Department of Computer Engineering, Faculty of Engineering and Technology, Jamia Millia Islamia, New Delhi for encouragement and providing every   necessary facility needed to bring this project yet further.
+
+At last, I would like to thank my friends and the staff  members at the Department of Computer Engineering for the help they extended whenever required.
+
+
+
+-- Saleem Ahmed Ansari
+
+== Preface
+
+=== A Computational Biology Experiment
+
+Computer-based research projects and computational analysis of experimental data must follow the same principles other scientific study do. The results must clearly answer the question set out to test, and they must be reproducible by someone else using the same input data and following the same process.
+
+If we're already doing research in experimental biology, we probably have a pretty good understanding of the scientific method. Although our data, our method, and our results are all encoded in computer files rather than sitting on our laboratory bench, the process of designing a computational "experiment" is the same as we are used to.
+
+Although it's easy in these days of automation to simply submit a query to a search engine and use the results without thinking too much about it, we need to understand our method and analyze our results thoroughly in the same way we would when applying a laboratory protocol. Sometimes that's easier said than done. So let's take a walk through the steps involved in defining an experiment in computational biology.
+
+
+=== Identifying the Problem
+
+A scientific experiment always begins with a question. A question can be as broad as "what is the catalytic mechanism of protein X?" It's not always possible to answer a complex question about how something works with one experiment. The question needs to be broken down into parts, each of which can be formulated as a hypothesis.
+
+A hypothesis is a statement that is testable by experiment. In the course of solving a problem, we will probably formulate a number of testable statements, some of them trivial and some more complex. For instance, as a first approach to answering the question, "What is the catalytic mechanism of protein X?", we might come up with a preliminary hypothesis such as: "There are amino acids in protein X that are conserved in other proteins that do the same thing as protein X." We can test this hypothesis by using a computer program to align the sequences of as many protein X-type proteins as we can find, and look for amino acids that are identical among all or most of the sequences. Subsequently we'd move to another hypothesis such as: "Some of these conserved amino acids in the protein X family have something to do with the catalytic mechanism." This more complex hypothesis can then be broken down into a number of smaller ones, each of them testable (perhaps by a laboratory experiment, or perhaps by another computational procedure).
+
+A research project can easily become interminable if the goals are ill-defined or the question can't feasibly be answered. On the other hand, if we aren't careful, it's easy to keep adding questions to a project on the basis of new information, allowing the goal to keep creeping out of reach every time its completion is close. It's easy to do this with computational projects, because the cost of materials and resources is low once the initial expense of buying computers and software is covered. It seems no big loss to just keep playing around on the computer.
+
+It is found that this pathological condition can be avoided if, before embarking on a computational project, some time is spent on sketching out a specification of the project's goals and timeline. If we plan to write a project spec, it's easier to start from written answers to questions such as the following:
+
+=== What is the question this project is trying to answer?
+
+This is a project titled "Generation of Phylogenetic Trees and a study of DNA/Protein Sequence Classification Systems". As apparent from the title itself, this project aims to achieve two objectives:
+
+Generation of Phylogenetic Trees:
+
+The Phylogenetic Tress are the trees which show the relative position of multiple species after a process of evolution. Sequence homology is a more general term that indicates evolutionary relatedness among sequences. Two sequences are said to be homologous if they are both derived from a common ancestral sequence. The terms similarity and homology are often used interchangeably to describe sequences, but, strictly speaking, they mean different things. Similarity refers to the presence of identical and similar sites in the two sequences, while homology reflects a stronger claim that the two sequences share a common ancestor.
+
+Study of DNA/Protein Sequence Classification Systems:
+This involves the type of data that is under examination and exploring the various methods, if available, for classification of the DNA/Protein Sequence Classification.
+
+=== What is the final form this project is going to take?
+
+The objectives of this project will lead to, at present, a hands on experience with the overall exposure to the field of Computational Biology in general and Bioinformatics in particular. I present all study done by me until the time of submission of this report. It includes a summary of the literature referred, description of varoius software tools worked  with and all the software tools written my me.
+
+Of course, since I am a new comer to this emerging field of Bioinformatics, I need the right guidance and support of the people around this project. Fortunately, until now everything is going on fine.
+
+=== What is the approximate time line of this project?
+
+This project involves the concepts, theories and methods that I was not familiar until recently and I am still under study phase. I have learned very many of the software tools used and started to tweak them. I expect this project to take a good shape in about three to four months, whereby I should have a software tools ready for the goal of this project.
+
+=== What have been the achievements until now?
+
+As, already stated, the objectives have been partially completed and this is a project under progress. At this point of time, there have been two significant achievements, however. One is the design of Phylogenetic Tree Viewer and other is the detailed study of the field of Bioinformatics. First, I present in this report the various aspects of Bioinformatics and thereafter a short tour of the Creation of Phylogenetic Tree for the given sequences and subsequently view the tree in 3D using the tool written as a part of this project.
+
+
+== Introduction to Bioinformatics
+
+Computers and the World Wide Web are rapidly and dramatically changing the face of biological research. These days, the term "paradigm shift" is used to describe everything from new business trends to new flavors of cola, but biological science is in the midst of a paradigm shift in the classical sense. Theoretical and computational biology have existed for decades on the "fringe" of biological science. But within just a few short years, the flood of new biological data produced by genomics efforts and, by necessity, the application of computers to the analysis of this genomic data, has begun to affect every aspect of the biological sciences. Research that used to start in the laboratory now starts at the computer, as scientists search databases for information that might suggest new hypotheses. In the last two decades, both personal computers and supercomputers have become accessible to scientists across all disciplines. Personal computers have developed from expensive novelties with little real computing power into machines that are as powerful as the supercomputers of 10 years ago. Just as they've replaced the author's typewriter and the accountant's ledger, computers have taken their place in controlling and collecting data from lab equipment. They have the potential to completely replace laboratory notebooks and files as a means of storing data. The power of computer databases allows much easier access to stored data than nonelectronic forms of recording. Beyond their usefulness for the storage, analysis, and visualization of data, however, computers are powerful devices for understanding any system that can be described in a mathematical way, giving rise to the disciplines of computational biology and, more recently, bioinformatics. Bioinformatics is the application of information technology to the management of biological data. It's a rapidly evolving scientific discipline. In the last two decades, storage of biological data in public databases has become increasingly common, and these databases have grown exponentially. The biological literature is growing exponentially as well. It's impossible for even the most zealous researcher to stay on top of necessary information in the field without the aid of computer-based tools, and the Web has made it possible for users at any location to interact with programs and databases at any other site—provided they know how to build the right tools. Bioinformatics is first and foremost a biological science. It's often less about developing perfectly elegant algorithms than it is about answering practical questions. Bioinformaticians (or bioinformaticists, if you prefer) are the tool-builders, and it's critical that they understand biological problems as well as computational solutions in order to produce useful tools. Bioinformatics algorithms need to encompass complex scientific assumptions that can complicate programming and data modeling in unique ways.
+
+Research in bioinformatics and computational biology can encompass anything from the abstraction of the properties of a biological system into a mathematical or physical model, to the implementation of new algorithms for data analysis, to the development of databases and web tools to access them.
+
+Time line of rapid rate of developments and changes in the fields of Computer Science and Molecular Biology specially during the 20th century.
+
+[width="80%",options="header"]
+|=======
+|Advances in Computer Science |Advances in Molecular Biology
+2+<.>m| Year 1850 onwards
+| |Mendel, DNA Isolated
+| Telephone,Phonograph |
+
+2+<.>m| Year 1900 onwards
+| Transatlantic Wireless | Chromosome Theory
+| Electronic Amplifier, Wrist Watch |
+
+2+<.>m| Year 1925 onwards
+| Product Integraph | Penicillin
+| Turing, FM Radio | Synthetic Antibiotics
+| Broadcast TV, Electronic Analog Computer | Spontaneous Mutation Discovered
+| Stored Computer Program, Information Theory, Transistor | Transposons Discovered
+
+2+<.>m| Year 1950 onwards
+
+| Commercial Computer | DNA Structure Discovered
+| AI, Numerical Integration | Recombination Discovered
+| Integrated Circuit | lac Operon Discovered
+| Minicomputer | Genetic Code
+| UNIX | Sense Strand
+| Relational Database, ARPANET | Restriction Enzymes
+| Floppy Disk | Recombinant DNA
+
+2+<.>m| Year 1975 onwards
+
+| PC | Souther Blotting
+| Electronic Spreadsheet | Interons
+| | Genetic Engineering Patent, Humulin
+| Cellular Phone Service, CD-ROM | GenBank, EMBL
+| OO Database | Polymerase Chain Reaction
+| WWW | Oncomouse, Human Genome Project, Gene Therapy
+| Web Browser | 
+| Computer Generated Movie, DVD | Yeast Genome Sequences, Dolly Clone
+| SETI@Home | 
+
+2+<.>m| Year 2000 onwards
+
+| Treagrid Funded | Human Genome “Draft”
+| | CC, Rabbit, Interspecies Clone
+| | Polio Virus Synthesized
+|=======
+
+
+In a strict sense, bioinformatics – the study of how information is presented and transmitted in biological systems, starting at the molecular level – is a discipline that does not need a computer. An ink pen and supply of traditional laboratory notebooks could be used to record results of experiments. However, to do so would be like foregoing the use of a computer and word-processing program in favor of pen and paper to write a novel. From practical sense, bioinformatics is a science that involves collecting, manipulating, analyzing, and transmitting huge quantities of data, and uses computers whenever appropriate.
+
+A demonstrated by the timelines in biology, communications, and computer science, the fields started out on disparate paths, only to converge in the early 1980s. Today, bioinformatics, like many sciences, deals with the storage, transport, and analysis of information. What distinguishes bioinformatics from other scientific endeavors is that it focuses on the information encoded in the genes and how this information affects the universe of biological processes. With this in mind, consider how bioinformatics is reflected in the the Central Dogma of molecular biology in the next chapter. 
+
+
+== Molecular Biology's Central Dogma
+
+=== What is the central dogma of molecular biology?
+
+Before we go any further, it's essential that you understand some basics of cell and molecular biology. The central dogma of molecular biology states that:
+
+“DNA acts as a template to replicate itself, DNA is also transcribed into RNA, and RNA is translated
+into protein.”
+
+As you can see, the central dogma sums up the function of the genome in terms of information. Genetic information is conserved and passed on to progeny through the process of replication. Genetic information is also used by the individual organism through the processes of transcription and translation. There are many layers of function, at the structural, biochemical, and cellular levels, built on top of genomic information. But in the end, all of life's functions come back to the information content of the genome.
+Put another way, genomic DNA contains the master plan for a living thing. Without DNA, organisms wouldn't be able to replicate themselves. The raw "one-dimensional" sequence of DNA, however, doesn't actually do anything biochemically; it's only information, a blueprint if you will, that's read by the cell's protein synthesizing machinery. DNA sequences are the punch cards; cells are the computers. DNA is a linear polymer made up of individual chemical units called nucleotides or bases. The four nucleotides that make up the DNA sequences of living things (on Earth, at least) are adenine, guanine, cytosine, and thymine—designated A, G, C, and T, respectively. The order of the nucleotides in the linear DNA sequence contains the instructions that build an organism. Those instructions are read in processes called replication, transcription, and translation.
+
+==== Replication of DNA
+
+The unusual structure of DNA molecules gives DNA special properties. These properties allow the information stored in DNA to be preserved and passed from one cell to another, and thus from parents to their offspring. Two molecules of DNA form a double-helical structure, twining around each other in a regular pattern along their full length—which can be millions of nucleotides. The halves of the double helix are held together by bonds between the nucleotides on each strand. The nucleotides also bond in particular ways: A can pair only with T, and G can pair only with C. Each of these pairs is referred to as a base pair, and the length of a DNA sequence is often described in base pairs (or bp), kilobases (1,000 bp), megabases (1 million bp), etc. Each strand in the DNA double helix is a chemical "mirror image" of the other. If there is an A on one strand, there will always be a T opposite it on the other. If there is a C on one strand, its partner will always be a G. When a cell divides to form two new daughter cells, DNA is replicated by untwisting the two strands of the double helix and using each strand as a template to build its chemical mirror image, or complementary strand. This process is illustrated in Figure 2.1.
+
+
+image::images/replication-dna.png[DNA Replication]
+
+Figure 2.1: Schematic replication of one strand of the DNA helix
+
+==== Genomes and Genes
+
+The entire DNA sequence that codes for a living thing is called its genome. The genome doesn't function as one long sequence, however. It's divided into individual genes. A gene is a small, defined section of the entire genomic sequence, and each gene has a specific, unique purpose. 
+There are three classes of genes. Protein-coding genes are templates for generating molecules called proteins. Each protein encoded by the genome is a chemical machine with a distinct purpose in the organism. RNA-specifying genes are also templates for chemical machines, but the building blocks of RNA machines are different from those that make up proteins. Finally, untranscribed genes are regions of genomic DNA that have some functional purpose but don't achieve that purpose by being transcribed or translated to create another molecule.
+
+==== Transcription of DNA
+
+DNA can act not only as a template for making copies of itself but also as a blueprint for a molecule called ribonucleic acid (RNA). The process by which DNA is transcribed into RNA is called transcription and is illustrated in Figure 2.2. RNA is structurally similar to DNA. It's a polymeric molecule made up of individual chemical units, but the chemical backbone that holds these units together is slightly different from the backbone of DNA, allowing RNA to exist in a single-stranded form as well as in a double helix. These single-stranded molecules still form base pairs between different parts of the chain, causing RNA to fold into 3D structures. The individual chemical units of RNA are designated A, C, G, and U (uracil, which takes the place of thymine). 
+
+image::images/transcription-dna.png[DNA Transcription]
+
+Figure 2.2: Schematic of DNA being transcribed into RNA
+
+The genome provides a template for the synthesis of a variety of RNA molecules: the three main types of RNA are messenger RNA, transfer RNA, and ribosomal RNA. Messenger RNA (mRNA) molecules are RNA transcripts of genes. They carry information from the genome to the ribosome, the cell's protein synthesis apparatus. Transfer RNA (tRNA) molecules are untranslated RNA molecules that transport amino acids, the building blocks of proteins, to the ribosome. Finally, ribosomal RNA (rRNA) molecules are the untranslated RNA components of ribosomes, which are complexes of protein and RNA. rRNAs are involved in anchoring the mRNA molecule and catalyzing some steps in the translation process. Some viruses also use RNA instead of DNA as their genetic material. 
+
+==== Translation of mRNA
+
+Translation of mRNA into protein is the final major step in putting the information in the genome to work in the cell. Like DNA, proteins are linear polymers built from an alphabet of chemically variable units. The protein alphabet is a set of small molecules called amino acids. Unlike DNA, the chemical sequence of a protein has physicochemical "content" as well as information content. Each of the 20 amino acids commonly found in proteins has a different chemical nature, determined by its side chain—a chemical group that varies from amino acid to amino acid. The chemical sequence of the protein is called its primary structure, but the way the sequence folds up to form a compact molecule is as important to the function of the protein as is its primary structure. The secondary and tertiary structure elements that make up the protein's final fold can bring distant parts of the chemical sequence of the protein together to form functional sites. 
+
+As shown in Figure 2.3, the genetic code is the code that translates DNA into protein. It takes three bases of DNA (called a codon) to code for each amino acid in a protein sequence. Simple combinatorics tells us that there are 64 ways to choose 3 nucleotides from a set of 4, so there are 64 possible codons and only 20 amino acids. Some codons are redundant; others have the special function of telling the cell's translation machinery to stop translating an mRNA molecule. Figure 2.4 shows how RNA is translated into protein.
+
+image::images/the-genetic-code.png[Genetic Code]
+
+Figure 2.3: The genetic code
+
+image::images/synthesis-of-protein.png[Protein Synthesis]
+
+Figure 2.4: Synthesis of protein with standard base pairing
+
+==== Molecular Evolution
+
+Errors in replication and transcription of DNA are relatively common. If these errors occur in the reproductive cells of an organism, they can be passed to its progeny. Alterations in the sequence of DNA are known as mutations. Mutations can have harmful results —results that make the progeny less likely to survive to adulthood. They can also have beneficial results, or they can be neutral. If a mutation doesn't kill the organism before it reproduces, the mutation can become fixed in the population over many generations. The slow accumulation of such changes is responsible for the process known as evolution. Access to DNA sequences gives us access to a more precise understanding of evolution. Our understanding of the molecular mechanism of evolution as a gradual process of accumulating DNA sequence mutations is the justification for developing hypotheses based on DNA and protein sequence comparison.
+
+=== What Biologists Model
+
+Now that we've completed our ultra-short course in cell biology, let's look at how to apply it to problems in molecular biology. One of the most important exercises in biology and bioinformatics is modeling. A model is an abstract way of describing a complicated system. Turning something as complex (and confusing) as a chromosome, or the cycle of cell division, into a simplified representation that captures all the features you are trying to study can be extremely difficult. A model helps us see the larger picture. One feature of a good model is that it makes systems that are otherwise difficult to study easier to analyze using quantitative approaches. Bioinformatics tools rely on our ability to extract relevant parameters from a biological system (be it a single molecule or something as complicated as a cell), describe them quantitatively, and then develop computational methods that use those parameters to compute the properties of a system or predict its behavior.
+
+To help you understand what a model is and what kind of analysis a good model makes possible, let's look at three examples on which bioinformatics methods are based. 
+
+==== Accessing 3D Molecules Through a 1D Representation
+
+In reality, DNA and proteins are complicated 3D molecules, composed of thousands or even millions of atoms bonded together. However, DNA and proteins are both polymers, chains of repeating chemical units (monomers) with a common backbone holding them together. Each chemical unit in the polymer has two subsets of atoms: a subset of atoms that doesn't vary from monomer to monomer and that makes up the backbone of the polymer, and a subset of atoms that does vary from monomer to
+monomer.
+
+In DNA, four nucleic acid monomers (A, T, C, and G) are commonly used to build the polymer chain. In proteins, 20 amino acid monomers are used. In a DNA chain, the four nucleic acids can occur in any order, and the order they occur in determines what the DNA does. In a protein, amino acids can occur in any order, and their order determines the protein's fold and function. Not too long after the chemical natures of DNA and proteins were understood, researchers recognized that it was convenient to represent them by strings of single letters. Instead of representing each nucleic acid in a DNA sequence as a detailed chemical entity, they could be represented simply as A, T, C, and G. Thus, a short piece of DNA that contains thousands of individual atoms can be represented by a sequence of few hundred letters. Figure 2.5 illustrates the simplified way to represent a polymer chain.
+
+
+image::images/AGTC.png[Polymer Chain]
+
+Figure 2.5: Simplifying the representation of a polymer chain
+
+Not only does this abstraction save storage space and provide a convenient form for sharing sequence information, it represents the nature of a molecule uniquely and correctly and ignores levels of detail (such as atomic structure of DNA and many proteins) that are experimentally inaccessible. Many computational biology methods exploit this 1D abstraction of 3D biological macromolecules. The abstraction of nucleic acid and protein sequences into 1D strings has been one of the most fruitful modeling strategies in computational molecular biology, and analysis of character strings is a long-standing area of research in computer science. One of the elementary questions you can ask about strings is, "Do they match?" There are well-established algorithms in computer science for finding exact and inexact matches in pairs of strings. These algorithms are applied to find pairwise matches between biological sequences and to search sequence databases using a sequence query. A string is simply an unbroken sequence o f characters. A character is a single letter chosen from a set of defined letters, whether that be binary code (strings of zeros and ones) or the more complicated alphabetic and numerical alphabet that can be typed on a computer keyboard.
+
+In addition to matching individual sequences, string-based methods from computer science have been successfully applied to a number of other problems in molecular biology. For example, algorithms for reconstructing a string from a set of shorter substrings can assemble DNA sequences from overlapping sequence fragments. Techniques for recognizing repeated patterns in single sequences or conserved patterns across multiple sequences allow researchers to identify signatures associated with biological structures or functions. Finally, multiple sequence-alignment techniques allow the simultaneous comparison of several molecules that can infer evolutionary relationships between sequences. This simplifying abstraction of DNA and protein sequence seems to ignore a lot of biology. The cellular context in which biomolecules exist is completely ignored, as are their interactions with other molecules and their molecular structure. And yet it has been shown over and over that matches between biological sequences —for example, in the detection of similarity in eye-development genes in humans and flies can be biologically meaningful.
+
+==== Abstractions for Modeling Protein Structure
+
+There is more to biology than sequences. Proteins and nucleic acids also have complex 3D structures that provide clues to their functions in the living organism. Molecular structures are usually represented as collections of atoms, each of which has a defined position in 3D space. Structure analysis can be performed on static structures, or movements and interactions in the molecules can be studied with molecular simulation methods. Standard molecular simulation approaches model proteins as a collection of point masses (atoms) connected by bonds. The bond between two atoms has a standard length, derived from experimental chemistry, and an associated applied force that constrains the bond at that length. The angle between three adjacent atoms has a standard value and an applied force that constrains the bond angle around that value. The same is true of the dihedral angle described by four adjacent atoms. In a molecular dynamics simulation, energy is added to the molecular system by simulated "heating." Following standard Newtonian laws, the atoms in the molecule move. The energy added to the system provides an opposing force that moves atoms in the molecule out of their standard conformations. The actions and
+reactions of hundreds of atoms in a molecular system can be simulated using this abstraction. However, the computational demands of molecular simulations are huge, and there is some uncertainty both in the force field -- the collection of standard forces that model the molecule—and in the modeling of non-bonded interactions -- interactions between nonadjacent atoms. So it has not proven possible to predict protein structure using the all-atom modeling approach.
+
+Some researchers have recently had moderate success in predicting protein topology for simple proteins using an intermediate level of abstraction—more than linear sequence, but less than an all-atom model. In this case, the protein is treated as a series of beads (representing the individual amino acids) on a string (representing the backbone). Beads may have different characters to represent the differences in the amino acid side-chains. They may be positively or negatively charged, polar or non-polar, small or large. There are rules governing which beads will attract each other. Like charges repel; unlike charges attract. Polar groups cluster with other polar groups, and non-polar with non-polar. There are also rules governing the string; mainly that it can't pass through itself in the course of the simulation. The folding simulation itself is conducted through sequential or simultaneous perturbation of the position of each bead.
+
+==== Mathematical Modeling of Biochemical Systems
+
+Using theoretical models in biology goes far beyond the single molecule level. For years, ecologists have been using mathematical models to help them understand the dynamics of changes in interdependent populations. What effect does a decrease in the population of a predator species have on the population of its prey? What effect do changes in the environment have on population? The answers to those questions are theoretically predictable, given an appropriate mathematical model and a knowledge of the sizes of populations and their standard rates of change due to various factors.
+
+In molecular biology, a similar approach, called metabolic control analysis, is applied to biochemical reactions that involve many molecules and chemical species. While cells contain hundreds or thousands of interacting proteins, small molecules, and ions, it's possible to create a model that describes and predicts a small corner of that complicated metabolism. For instance, if you are interested in the biological processes that maintain different concentrations of hydrogen ions on either side of the mitochondrial inner membrane in eukaryotic cells, it's probably not necessary for your model to include the distant group of metabolic pathways that are closely involved in biosynthesis of the heme structure.
+
+Metabolic models describe a biochemical process in terms of the concentrations of chemical species involved in a pathway, and the reactions and fluxes that affect those concentrations. Reactions and fluxes can be described by differential equations; they are essentially rates of change in concentration. 
+
+What makes metabolic simulation interesting is the possibility of modeling dozens of reactions simultaneously to see what effect they have on the concentration of particular chemical species. Using a properly constructed metabolic model, you can test different assumptions about cellular conditions and fine-tune the model to simulate experimental observations. That, in turn, can suggest testable hypotheses to drive further research.
+
+
+=== Why Biologists Model
+
+We've mentioned more than once that theoretical modeling provides testable hypotheses, not definitive answers. It sometimes isn't so easy to maintain this distinction, especially with pairwise sequence comparison, which seems to provide such ready answers. Even identification of genes based on sequence similarity ultimately needs to be validated experimentally. It's not sufficient to say that an unknown DNA sequence is similar to the sequence of a gene that has been subject to detailed characterization, so therefore it must have an identical function. The two sequences could be distantly related but have evolved to have different functions. However, it's altogether reasonable to use sequence similarity as the starting point for verification; if sequence homology suggests that an unknown gene is similar to citrate synthases, your first experimental approach might be to test the unknown gene product for citrate synthase activity.
+
+One of the main benefits of using computational tools in biology is that it becomes easier to preselect targets for experimentation in molecular biology and biochemistry. Using everything from sequence profiling methods to geometric and physicochemical analysis of protein structures, researchers can focus narrowly on the parts of a sequence or structure that appear to have some functional significance.
+
+Only a decade ago, this focusing might have been done using "shotgun" approaches to site-directed mutagenesis, in which random single-residue mutants of a protein were created and characterized in order to select possible targets. Functional genomics and metabolic reconstruction efforts are beginning to provide biochemists with a framework for narrowing their research focuses as well. For the researcher focused on developing bioinformatics methods, the discovery of general rules and properties in data is by far the most interesting category of problems that can be addressed using a computer. It's also a diverse category and one we can't give you many rules for. Researchers have found interesting and useful properties in everything from sequence patterns to the separation of atoms in molecular structures and have applied these findings to produce such tools as genefinders, secondary structure prediction tools, profile methods, and homology modeling tools.
+
+Bioinformatics researchers are still tackling problems that currently have reasonably successful solutions, from basecalling to sequence alignment to genome comparison to protein structure modeling, attempting to improve the accuracy and range of these procedures. Information-technology experts are currently developing database structures and query tools for everything from gene-expression data to intermolecular interactions. Like any other field of research, there are many niches of inquiry available, and the only way to find them is to delve into the current literature.
+
+=== Various Computational Methods
+
+Molecular biology research is a fast-growing area. The amount and type of data that can be gathered is exploding, and the trend of storing this data in public databases is spilling over from genome sequence to all sorts of other biological datatypes. The information landscape for biologists is changing so rapidly that anything we say in this book is likely to be somewhat behind the times before it even hits the shelves.
+
+Yet, since the inception of the Human Genome Project, a core set of computational approaches has emerged for dealing with the types of data that are currently shared in public databases—DNA, protein sequence, and protein structure. Although databases containing results from new high-throughput molecular biology methods have not yet grown to the extent the sequence databases have, standard methods for analyzing these data have begun to emerge.
+
+While not exhaustive, the following topics gives you an overview of the various computational methods:
+
+==== Using public databases and data formats
+
+The first key skill for biologists is to learn to use online search tools to find information. Literature searching is no longer a matter of looking up references in a printed index. You can find links to most of the scientific publications you need online. There are central databases that collect reference information so you can search dozens of journals at once. You can even set up "agents" that notify you when new articles are published in an area of interest. Searching the public molecular-biology databases requires the same skills as searching for literature references: you need to know how to construct a query statement that will pluck the particular needle you're looking for out of the database haystack. 
+
+==== Sequence alignment and sequence searching
+
+Being able to compare pairs of DNA or protein sequences and extract partial matches has made it possible to use a biological sequence as a database query. Sequence-based searching is another key skill for biologists; a little exploration of the biological databases at the beginning of a project often saves a lot of valuable time in the lab. Identifying homologous sequences provides a basis for phylogenetic analysis and sequence-pattern recognition. Sequence-based searching can be done online through web forms, so it requires no special computing skills, but to judge the quality of your search results you need to understand how the underlying sequence-alignment method works and go beyond simple sequence alignment to other types of analysis.
+
+==== Gene prediction
+
+Gene prediction is only one of a cluster of methods for attempting to detect meaningful signals in uncharacterized DNA sequences. Until recently, most sequences deposited in GenBank were already characterized at the time of deposition. That is, someone had already gone in and, using molecular biology, genetic, or biochemical methods, figured out what the gene did. However, now that the genome projects are in full swing, there's a lot of DNA sequence out there that isn't characterized. Software for prediction of open reading frames, genes, exon splice sites, promoter binding sites, repeat sequences, and tRNA genes helps molecular biologists make sense out of this unmapped DNA.
+
+==== Multiple sequence alignment
+
+Multiple sequence-alignment methods assemble pairwise sequence alignments for many related sequences into a picture of sequence homology among all members of a gene family. Multiple sequence alignments aid in visual identification of sites in a DNA or protein sequence that may be functionally important. Such sites are usually conserved; that is, the same amino acid is present at that site in each one of a group of related sequences. Multiple sequence alignments can also be quantitatively analyzed to extract information about a gene family. Multiple sequence alignments are an integral step in phylogenetic analysis of a family of related sequences, and they also provide the basis for identifying sequence patterns that characterize particular protein families. 
+
+==== Phylogenetic analysis
+
+Phylogenetic analysis attempts to describe the evolutionary relatedness of a group of sequences. A traditional phylogenetic tree or cladogram groups species into a diagram that represents their relative evolutionary divergence. Branchings of the tree that occur furthest from the root separate individual species; branchings that occur close to the root group species into kingdoms, phyla, classes, families, genera, and so on. The information in a molecular sequence alignment can be used to compute a phylogenetic tree for a particular family of gene sequences. The branchings in phylogenetic trees represent evolutionary distance based on sequence similarity scores or on information-theoretic modeling of the number of mutational steps required to change one sequence into the other. Phylogenetic analyses of protein sequence families talks not about the evolution of the entire organism but about evolutionary change in specific coding regions, although our ability to create broader evolutionary models based on molecular information will expand as the genome projects provide more data to work with.
+
+==== Extraction of patterns and profiles from sequence data
+
+A motif is a sequence of amino acids that defines a substructure in a protein that can be connected to function or to structural stability. In a group of evolutionarily related gene sequences, motifs appear as conserved sites. Sites in a gene sequence tend to be conserved—to remain the same in all or most representatives of a sequence family—when there is selection pressure against copies of the gene that have mutations at that site. Nonessential parts of the gene sequence will diverge from each other in the course of evolution, so the conserved motif regions show up as a signal in a sea of mutational noise. Sequence profiles are statistical descriptions of these motif signals; profiles can help identify distantly related proteins by picking out a motif signal even in a sequence that has diverged radically from other members of the same family. 
+
+==== Protein sequence analysis
+
+The amino-acid content of a protein sequence can be used as the basis for many analyses, from computing the isoelectric point and molecular weight of the protein and the characteristic  peptide mass fingerprints that will form when it's digested with a particular protease, to predicting secondary structure features and post-translational modification sites. 
+
+==== Protein structure prediction
+
+It's a lot harder to determine the structure of a protein experimentally than it is to obtain DNA sequence data. One very active area of bioinformatics and computational biology research is the development of methods for predicting protein structure from protein sequence. Methods such as secondary structure prediction and threading can help determine how a protein might fold, classifying it with other proteins that have similar topology, but they don't provide a detailed structural model. The most effective and practical method for protein structure prediction is homology modeling—using a known structure as a template to model a structure with a similar sequence. In the absence of homology, there is no way to predict a complete 3D structure for a  protein.
+
+==== Protein structure property analysis
+
+Protein structures have many measurable properties that are of interest to crystallographers and structural biologists. Protein structure validation tools are used by crystallographers to measure how well a structure model conforms to structural rules extracted from existing structures or chemical model compounds. These tools may also analyze the "fitness" of every amino acid in a structure model for its environment, flagging such oddities as buried charges with no counter-charge or large patches of hydrophobic amino acids found on a protein surface. These tools are useful for evaluating both experimental and theoretical structure models. Another class of tools can calculate internal geometry and physico-chemical properties of proteins. These tools usually are applied to help develop models of the protein's catalytic mechanism or other chemical features. Some of the most interesting properties of protein structures are the locations of deeply concave surface clefts and internal cavities, both of which may point to the location of a cofactor binding site or active site. Other tools compute hydrogen-bonding patterns or analyze intra-molecular contacts. A particularly interesting set of properties are the electrostatic potential field surrounding the protein and other electrostatically controlled parameters such as individual amino acid pKas, protein solvation energies, and binding constants.
+
+==== Protein structure alignment and comparison
+
+Even when two gene sequences aren't apparently homologous, the structures of the proteins they encode can be similar. New tools for computing structural similarity are making it possible to detect distant homologies by comparing structures, even in the absence of much sequence similarity.
+
+==== Biochemical simulation
+
+Biochemical simulation uses the tools of dynamical systems modeling to simulate the chemical reactions involved in metabolism. Simulations can extend from individual metabolic pathways to trans-membrane transport processes and even properties of whole cells or tissues. Biochemical and cellular simulations traditionally have relied on the ability of the scientist to describe a system mathematically, developing a system of differential equations that represent the different reactions and fluxes occurring in the system. However, new software tools can build the mathematical framework of a simulation automatically from a description provided interactively by the user, making mathematical modeling accessible to any biologist who knows enough about a system to describe it according to the conventions of dynamical systems modeling. 
+
+==== Whole genome analysis
+
+As more and more genomes are sequenced completely, the analysis of raw genome data has become a more important task. There are a number of perspectives from which one can look at genome data: for example, it can be treated as a long linear sequence, but it's often more useful to integrate DNA sequence information with existing genetic and physical map data. This allows you to navigate a very large genome and find what you want. The National Center for Biotechnology Information (NCBI) and other organizations are making a concerted effort to provide useful web interfaces to genome data, so that users can start from a high-level map and navigate to the location of a specific gene sequence. Genome navigation is far from the only issue in genomic sequence analysis, however. Annotation frameworks, which integrate genome sequence with results of gene finding analysis and sequence homology information, are becoming more common, and the challenge of making and analyzing complete pairwise comparisons between genomes is beginning to be addressed.
+
+==== Primer design
+
+Many molecular biology protocols require the design of oligonucleotide primers. Proper primer design is critical for the success of polymerase chain reaction (PCR), oligo hybridization, DNA sequencing, and microarray experiments. Primers must hybridize with the target DNA to provide a clear answer to the question being asked, but, they must also have appropriate physicochemical properties; they must not self-hybridize or dimerize; and they should not have multiple targets within the sequence under investigation. There are several web -based services that allow users to submit a DNA sequence and automatically detect appropriate primers, or to compute the properties of a desired primer DNA sequence. 
+
+==== DNA microarray analysis
+
+DNA microarray analysis is a relatively new molecular biology method that expands on classic probe hybridization methods to provide access to thousands of genes at once. Microarray experiments are amenable to computational analysis because of the uniform, standardized nature of their results—a grid of equally sized spots, each identifiable with a particular DNA  sequence. Computational tools are required to analyze larger microarrays because the resulting images are so visually complex that comparison by hand is no longer feasible. The main tasks in microarray analysis as it's currently done are an image analysis step, in which individual spots on the array image are identified and signal intensity is quantitated, and a clustering step, in which spots with similar signal intensities are identified. Computational support is also required for the chip -design phase of a microarray experiment to identify appropriate oligonucleotide probe sequences for a particular set of genes and to maintain a record of the identity of each spot in a grid that may contain thousands of individual experiments. 
+
+==== Proteomics analysis
+
+Before they're ever crystallized and biochemically characterized, proteins are often studied using a combination of gel electrophoresis, partial sequencing, and mass spectroscopy. 2D gel electrophoresis can separate a mixture of thousands of proteins into distinct components; the individual spots of material can be blotted or even cut from the gel and analyzed. Simple computational tools can provide some information to aid in the process of analyzing protein mixtures. It's trivial to compute molecular weight and pI from a protein sequence; by using these values in combination, sets of candidate identities can be found for each spot on a gel. It's also possible to compute, from a protein sequence, the peptide fingerprint that is created when that protein is broken down into fragments by enzymes with specific protein cleavage sites. Mass spec analyses of protein fragments can be compared to computed peptide fingerprints to further limit the search.
+
+
+
+
+== Sequence Alignment and Phylogentic Trees
+
+=== Why is it useful to compare and align sequences?
+
+The sequence alignment is based on the fact that all living organisms are related by evolution. This implies that the nucleotide (DNA,RNA) and protein sequences of the species that are closer to each other in evolution should exhibit more similarities. An Alignment is the process of lining up sequences to achieve a maximal level of identity, which also expresses the degree of similarity between sequences. Two sequences are homologous if they share a common ancestor. The degree of similarity obtained by sequence alignment can be useful in determining the possibility of homology between two sequences. Such an alignment also helps determine the relative position of multiple species in an evolution tree, which is called a phylogenetic tree.
+
+Major Biological Data and Information Sources
+
+[width="80%",options="header"]
+|=======
+| Subject | Source | Link
+| Biomedical literature | PubMed | http://www.ncbi.nlm.nih.gov/entrez/query.fcgi
+| Nucleic acid sequence | GenBank | http://www.ncbi.nlm.nih.gov:80/entrez/query.fcgi?db=Nucleotide  
+| | SRS at EMBL /EBI |  http://srs.ebi.ac.uk
+| Genome sequence | Entrez Genome | http://www.ncbi.nlm.nih.gov:80/entrez/query.fcgi?db=Genome 
+| | TIGR databases | http://www.tigr.org/tdb/ 
+| Protein sequence | GenBank | http://www.ncbi.nlm.nih.gov:80/entrez/query.fcgi?db=Protein 
+| | SWISS-PROT | http://www.expasy.ch/spro/
+| | ExPASy PIR | http://www-nbrf.georgetown.edu
+| Protein structure | Protein Data Bank | http://www.rcsb.org/pdb/
+| Protein and peptide mass spectroscopy |  PROWL | http://prowl.rockefeller.edu
+| Post-translational modifications | RESID | http://www-nbrf.georgetown.edu/pirwww/search/textresid.html 
+| Biochemical and biophysical information | ENZYME |  http://www.expasy.ch/enzyme/ 
+| | BIND | http://www.ncbi.nlm.nih.gov:80/entrez/query.fcgi?db=Structure
+| Biochemical pathways | PathDB | http://www.ncgr.org/software/pathdb/
+| | KEGG | http://www.genome.ad.jp/kegg/
+| | WIT | http://wit.mcs.anl.gov/WIT2/
+| Microarray | Gene Expression Links | http://industry.ebi.ac.uk/~alan/MicroArray/
+| 2D-PAGE | SWISS-2DPAGE | http://www.expasy.ch/ch2d/ch2d-top.html
+| Web resources | The EBI Biocatalog | http://www.ebi.ac.uk/biocat/
+| | IUBio Archive | http://iubio.bio.indiana.edu 
+|=======
+
+Table 3.1: Summarizes sources on the Web for some of the most important databases available online.
+
+
+[width="80%",options="header"]
+|=======
+| What you do? | Why you do it? | What you use to do it?
+| Gene finding | Identify possible coding regions in genomic DNA sequences | GENSCAN, GeneWise, PROCRUSTES, GRAIL
+| DNA feature detection | Locate splice sites, promoters, and sequences involved in regulation of gene expression | CBS Prediction Server
+| DNA translation and reverse translation | Convert a DNA sequence into protein sequence or vice versa | "Protein machine" server at EBI
+| Pairwise sequence alignment (local) |  Locate short regions of homology in a pair of longer sequences | BLAST, FASTA
+| Pairwise sequence alignment (global) | Find the best full-length alignment between two sequences  | ALIGN
+| Sequence database search by pairwise comparison | Find sequence matches that aren't recognized by a keyword search; find only matches that actually have some sequence homology | BLAST, FASTA, SSEARCH
+|=======
+
+Table 3.2: Sequence Analysis Tools and Techniques
+
+3.2.1 Multiple Sequence Alignment
+
+Multiple sequence alignment techniques are most commonly applied to protein sequences; ideally they are a statement of both evolutionary and structural similarity among the proteins encoded by each sequence in the alignment. We know that proteins with closely related functions are similar in both sequence and structure from organism to organism, and that sequence tends to change more rapidly than structure in the course of evolution. In multiple alignments generated from sequence data alone, regions that are similar in sequence are usually found to be super imposable in structure as well.
+
+With a detailed knowledge of the biochemistry of a protein, you can create a multiple alignment by hand. This is a painstaking  process, however. The challenge of automatic alignment is that it is hard to define exactly what an optimal multiple alignment is, and impossible to set a standard for a single correct multiple alignment. In theory, there is one underlying evolutionary process and one evolutionarily correct alignment to be generated from any group of sequences. However, the differences between sequences can be so great in parts of an alignment that there isn't an apparent, unique solution to be found by an alignment algorithm. Those same divergent regions are often structurally non-align-able as well. Most of the insight that we derive from multiple alignments comes from analyzing the regions of similarity, not from attempting to align the very diverged regions. 
+
+The dynamic programming algorithm used for pairwise sequence alignment can theoretically be extended to any number of sequences. However, the time and memory requirements of this algorithm increase exponentially with the number of sequences. Dynamic programming alignment of two sequences takes seconds. Alignment of four relatively short sequences takes a few hours. Beyond that, it becomes impractical to align sequences this way. The program MSA is an implementation of an algorithm that reduces the complexity of the dynamic programming problem for multiple sequences to some extent. It can align about seven relatively short (200 -300) protein sequences in a reasonable amount of time. However, MSA is of little use when comparing large numbers of sequences. 
+
+3.2.2 Progressive Strategies for Multiple Alignment
+
+A common approach to multiple sequence alignment is to progressively align pairs of sequences. The general progressive strategy can be outlined as follows: a starting pair of sequences is selected and aligned, then each subsequent sequence is aligned to the previous alignment. Like the Needleman- Wunsch and Smith-Waterman algorithms for sequence alignment, progressive alignment is an instance of a heuristic algorithm. Specifically, it is a greedy algorithm. Greedy algorithms decompose a problem into pieces, then choose the best solution to each piece without paying attention to the problem as a whole. In the case of progressive alignment, the overall problem (alignment of many sequences) is decomposed into a series of pairwise alignment steps. 
+
+Because it is a heuristic algorithm, progressive alignment isn't guaranteed to find the best possible alignment. In practice, however, it is efficient and produces biologically meaningful results. Progressive alignment methods differ in several respects: how they choose the initial pair of sequences to align, whether they align every subsequent sequence to a single cumulative alignment or create subfamilies, and how they score individual alignments and alignments of individual sequences to previous alignments.
+
+
+3.3 Phylogenetic Analysis
+
+Having covered some of the basics of multiple sequence alignment, we now introduce one of its applications: phylogenetic inference. Phylogenetic inference is the process of developing hypotheses about the evolutionary relatedness of organisms based on their observable characteristics. Traditionally, phylogenetic analyses have been based on the gross anatomy of species. When Linneaus developed the system of classification into kingdoms, phyla, genera, and species, the early biologists sorted living things into a symbolic Tree of Life, which we saw in Figure 1-3. This tree-based representation of the relationships among species is a phylogenetic tree; it has since been adopted as a convenient schematic for depicting evolutionary relatedness based on sequence similarity. The quantitative nature of sequence relationships has allowed the development of more rigorous methods and rules for tree drawing.
+
+While hand-drawn trees of life may branch fancifully according to what is essentially an artist's conception of evolutionary relationships, modern phylogenetic trees are strictly binary; that is, at any branch point, a parent branch splits into only two daughter branches. Binary trees can approximate any other branching pattern, and the assumption that trees are binary greatly simplifies the tree-building algorithms.
+
+The length of branches in a quantitative phylogenetic tree can be determined in more than one way. Evolutionary distance between pairs of sequences, relative to other sequences in an input data set, is one way to assign branch length.
+
+While a phylogeny of species generally has a root, assuming that all species have a specific common ancestor, a phylogenetic tree derived from sequence data may be rooted or unrooted. It isn't too difficult to calculate the similarity between any two sequences in a group and to determine where branching points belong. It is much harder to pinpoint which sequence in such a tree is the common ancestor, or which pair of sequences can be selected as the first daughters of a common ancestor. While some phylogenetic inference programs do offer a hypothesis about the root of a tree, most simply produce unrooted trees. Figure 3.3 and Figure 3.4 illustrate rooted and unrooted phylogenetic trees. 
+
+
+image::images/rooted-tree.png[Rooted plylogenetic tree]
+
+Figure 3.3: A rooted phylogenetic tree
+
+image::images/unrooted-tree.png[Unrooted plylogenetic tree]
+
+Figure 3.4: An unrooted phylogenetic tree
+
+A phylogeny inferred from a protein or nucleic acid sequence has only a passing resemblance to a whole-organism tree of life (a true tree) that represents actual speciation events. A single phylogeny may be a tree, and it may describe a biological entity, but it takes far more than a single evolutionary analysis to draw conclusions about whole-organism phylogeny. Sequence-based phylogenies are quantitative. When they are built based on sufficient amounts of data, they can provide valuable, scientifically valid evidence to support theories of evolutionary history. However, a single sequence-based phylogenetic analysis can only quantitatively describe the input data set. It isn't valid as a quantitative tool beyond the bounds of that data set, and if you are using phylogenetic analysis tools to develop evolutionary hypotheses, it is critical to remember this point.
+
+It has been shown, by comparative analysis of phylogenies generated for different protein and gene families, that one protein may evolve more quickly than another, and that a single protein may evolve more quickly in some organisms than in others. Thus, the phylogenetic analysis of a sequence family is most informative about the evolution of that particular gene. Only by analysis of much larger sets of data can theories of whole-organism phylogeny be suggested. 
+
+3.3.1 Phylogenetic Trees Based on Pairwise Distances
+
+One of the easiest to understand algorithms for tree drawing is the pairwise distance method. This method produces a rooted tree. The algorithm is initialized by defining a matrix of distances between each pair of sequences in the input set. Sequences are then clustered according to distance, in effect building the tree from the branches down to the root. Distances can be defined by more than one measure, but one of the more common and simple measures of dissimilarity between DNA sequences is the Jukes-Cantor distance, which is logarithmically related to the fraction of sites at which two sequences in an alignment differ. The fraction of matching positions in an ungapped alignment between two unrelated DNA sequences approaches 25%. Consequently, the Jukes-Cantor distance is scaled such that it approaches infinity as the fraction of unmatched residue pairs approaches 75%. The pairwise clustering procedure used for tree drawing (UPGMA, unweighted pair group method using arithmetic averages) is intuitive. To begin with, each sequence is assigned to its own cluster, and a branch (or leaf ) of the tree is started for that sequence at height zero in the tree. Then, the two clusters that are closest together in terms of whatever distance measure has been chosen are merged into a single cluster. A branch point (or node) is defined that connects the two branches. The node is placed at a height in the tree that reflects the distance between the two leaves that have been joined. This process is repeated iteratively, until there are only two clusters left. When they are joined, the root of the tree is defined. The branch lengths in a tree  constructed using this process theoretically reflect evolutionary time.
+
+
+3.3.2 Phylogenetic Trees Based on Neighbor Joining
+
+Neighbor joining is another distance matrix method. It eliminates a possible error that can occur when the UPGMA method is used. UPGMA produces trees in which the branches that are closest together by absolute distance are placed as neighbors in the tree. This assumption places a restriction on the topology of the tree that can lead to incorrect tree construction under some conditions. In order to get around this problem, the neighbor-joining algorithm searches not just for minimum pairwise distances according to the distance metric, but for sets of neighbors that minimize the total length of the tree. Neighbor joining is the most widely used of the distance-based methods and can produce reasonable trees, especially when evolutionary distances are short. 
+
+3.3.3 Phylogenetic Trees Based on Maximum Parsimony
+
+A more widely used algorithm for tree drawing is called parsimony. Parsimony is related to Occam's Razor, a principle formulated by the medieval philosopher William of Ockham that states the simplest explanation is probably the correct one. Parsimony searches among the set of possible trees to find the one requiring the least number of nucleic acid or amino acid substitutions to explain the observed differences between sequences.
+
+    Or, in other words, "It is futile to do with more what can be done with fewer."
+
+The only sites considered in a parsimony analysis of aligned sequences are those that provide evolutionary information—that is, those sites that favor the choice of one tree topology over another. A site is considered to be informative if there is more than one kind of residue at the site, and if each type of residue is represented in more than one sequence in the alignment. Then, for each possible tree topology, the number of inferred evolutionary changes at each site is calculated. The topology that is maximally parsimonious is that for which the total number of inferred changes at all the informative sites is minimized. In some cases there may be multiple tree topologies that are equally parsimonious. As the number of sequences increases, so does the number of possible tree topologies. After a certain point, it is impossible to exhaustively enumerate the scores of each topology. A shortcut algorithm that finds the maximally parsimonious tree in such cases is the branch-and-bound algorithm. This algorithm establishes an upper bound for the number of allowed evolutionary changes by computing a tree using a fast or arbitrary method. As it evaluates other trees, it throws out any exceeding this upper bound before the calculation is completed. 
+
+
+3.3.4 Phylogenetic Trees Based on Maximum Likelihood Estimation
+
+Maximum likelihood methods also evaluate every possible tree topology given a starting set of sequences. Maximum likelihood methods are probabilistic; that is , they search for the optimal choice by assigning probabilities to every possible evolutionary change at informative sites, and by maximizing the total probability of the tree. Maximum likelihood methods use information about amino acid or nucleotide substitution rates, analogous to the substitution matrices that are used in multiple sequence alignment.
+
+Phylogenetic Tree Generation and Multiple Alignment with ClustalW
+
+One commonly used program for progressive multiple sequence alignment is ClustalW. The heuristic used in ClustalW is based on phylogenetic analysis. First, a pairwise distance matrix for all the sequences to be aligned is generated, and a guide tree is created using the neighbor-joining algorithm. Then, each of the most closely related pairs of sequences—the outermost branches of the tree—are aligned to each other using dynamic programming. Next, each new alignment is analyzed to build a sequence profile. Finally, alignment profiles are aligned to each other or to other sequences (depending on the topology of the tree) until a full alignment is built. 
+
+This strategy produces reasonable alignments under a range of conditions. It's not foolproof; for distantly related sequences, it can build on the inaccuracies of pairwise alignment and phylogenetic analysis. But for sequence sets with some recognizably related pairs, it builds on the strengths of these methods. Pairwise sequence alignment by dynamic programming is very accurate for closely related sequences regardless of which scoring matrix or penalty values are used. Phylogenetic analysis is relatively unambiguous for closely related sequences. Using multiple sequences to create profiles increases the accuracy of pairwise alignment for more distantly related sequences. There are many parameters involved in multiple sequence alignment. There are, of course, scoring matrices and gap penalties associated with the pairwise alignment steps. In addition, there are weighting parameters that alter the scoring matrix used in sequence-profile and profile-profile alignments. 
+
+In the next chapter we discuss about the generation and visualization of the phylogenetic trees.
+
+
+== Generation and Visualization of Phylogenetic trees
+
+===  Fasta (Pearson) file format
+
+A sequence in FASTA format begins with a single-line description, followed by lines of sequence data. The description line is distinguished from the sequence data greater-than(">") symbol in the first column. An example sequence in FASTA format is:
+
+----
+>MT dna:chromosome chromosome:NCBI36:MT:1:16571:1
+GATCACAGGTCTATCACCCTATTAACCACTCACGGGAGCTCTCCATGCATTTGGTATTTT
+CGTCTGGGGGGTGTGCACGCGATAGCATTGCGAGACGCTGGAGCCGGAGCACCCTATGTC
+GCAGTATCTGTCTTTGATTCCTGCCTCATTCTATTA
+----
+
+
+Sequences which should be shorter than 80 characters in length, are expected to be represented in the standard International Union of Biochemistry-International Union of Pure and Applied Chemistry(IUB/UIUPAC) amino acid and nucleic acid codes, with these exceptions:
+
+ * lower case letters are accepted and mapped into uppercase  letters
+ * a single hyphen or a dash can be used to represent a gap of indeterminate length
+ * and in amino acid sequences, `U` and `*` are acceptable letters
+
+Before submitting a request, any numerical digits in the query sequence should either be removed or replaced by appropriate letter codes (e.g. N for unknown nucleic acid residue or X for unknown amino acid residue).
+
+The nucleic acid codes supported are:
+
+----
+A --> adenosine
+C --> cytidine
+G --> guanine
+T --> thymidine
+U --> uridine
+R --> G A (purine)
+Y --> T C (pyrimidine)
+K --> G T (keto)
+M --> A C (amino)
+S --> G C (strong)
+W --> A T (weak)
+B --> G T C
+D --> G A T
+H --> A C T
+V --> G C A
+N --> A G T C (any)
+- gap of indeterminate length
+----
+
+
+For programs that use amino acids query sequences, such as BLASTP and TBLASTN, the accepted amino acid codes are:
+
+----
+A alanine
+B asparate or asparagine
+C cystine
+D asparate
+E glutamate
+F phenylanaline
+G glycine
+H histidine
+I isoleucine
+K lysine
+L leucine
+M methionine
+N asparagine
+P proline
+Q glutamine
+R arginine
+S serine
+T threonine
+U selenocysteine
+V valine
+W tryptophan
+Y tyrosine
+Z glutamate or glutamine
+X any
+* translation stop
+- gap of indeterminate length
+
+----
+
+
+=== Obtaining the phylogenetic tree
+
+Tobtain the phylogentic tree we use the popular software tool called ClustalW. The steps are explained in the following pages. First an input file ( fasta format ) containing desired nmber of sequences is given as input to clustalw. Then the phylogenetic tree is onbtained from the menu. Subsequently, the tree is converted in to a 3D viewable format using the ph2iv tool. Thereafter, the generated 3D viewable file is viewed using the ev-iv tool. 
+
+----
+[saleem@tux-dna dna]$ clustalw 
+
+
+
+ **************************************************************
+ ******** CLUSTAL W (1.83) Multiple Sequence Alignments  ********
+ **************************************************************
+
+
+     1. Sequence Input From Disc
+     2. Multiple Alignments
+     3. Profile / Structure Alignments
+     4. Phylogenetic trees
+
+     S. Execute a system command
+     H. HELP
+     X. EXIT (leave program)
+
+
+Your choice: 1
+
+
+Sequences should all be in 1 file.
+
+7 formats accepted: 
+NBRF/PIR, EMBL/SwissProt, Pearson (Fasta), GDE, Clustal, GCG/MSF, RSF.
+
+
+Enter the name of the sequence file: 03.fa
+
+Sequence format is Pearson
+Sequences assumed to be DNA
+
+
+Sequence 1: EBI|264            828 bp
+Sequence 2: CRA|agCT42178      609 bp
+Sequence 3: EBI|265           1152 bp
+Sequence 4: CRA|agCT41651      648 bp
+Sequence 5: EBI|59            1785 bp
+Sequence 6: CRA|agCT41694      466 bp
+Sequence 7: EBI|876            363 bp
+Sequence 8: EBI|263            930 bp
+Sequence 9: EBI|1853           711 bp
+Sequence 10: EBI|285            519 bp
+Sequence 11: EBI|64            1395 bp
+Sequence 12: EBI|61             792 bp
+Sequence 13: EBI|60             768 bp
+Sequence 14: EBI|875           1158 bp
+Sequence 15: EBI|877           1026 bp
+Sequence 16: CRA|agCT42190      979 bp
+Sequence 17: EBI|267           1422 bp
+Sequence 18: EBI|881            888 bp
+Sequence 19: CRA|agCT42019     1817 bp
+Sequence 20: EBI|878            360 bp
+Sequence 21: EBI|1854           417 bp
+Sequence 22: CRA|agCT42194     2693 bp
+Sequence 23: CRA|agCT42025     1383 bp
+Sequence 24: CRA|agCT41844      860 bp
+Sequence 25: EBI|1860          1239 bp
+Sequence 26: EBI|1862           393 bp
+Sequence 27: EBI|1861           417 bp
+Sequence 28: CRA|agCT42018      610 bp
+Sequence 29: CRA|agCT42020      829 bp
+Sequence 30: CRA|agCT41727      294 bp
+Sequence 31: EBI|882            465 bp
+Sequence 32: EBI|63            1287 bp
+Sequence 33: CRA|agCT41860      257 bp
+Sequence 34: EBI|880            492 bp
+Sequence 35: EBI|62             423 bp
+Sequence 36: EBI|879           1416 bp
+Sequence 37: CRA|agCT41826      681 bp
+Sequence 38: CRA|agCT41827      306 bp
+Sequence 39: CRA|agCT41828      398 bp
+Sequence 40: EBI|65             456 bp
+
+
+ **************************************************************
+ ******** CLUSTAL W (1.83) Multiple Sequence Alignments  ********
+ **************************************************************
+
+
+     1. Sequence Input From Disc
+     2. Multiple Alignments
+     3. Profile / Structure Alignments
+     4. Phylogenetic trees
+
+     S. Execute a system command
+     H. HELP
+     X. EXIT (leave program)
+
+
+Your choice: 4
+
+
+
+****** PHYLOGENETIC TREE MENU ******
+
+
+    1.  Input an alignment
+    2.  Exclude positions with gaps?        = OFF
+    3.  Correct for multiple substitutions? = OFF
+    4.  Draw tree now
+    5.  Bootstrap tree
+    6.  Output format options
+
+    S.  Execute a system command
+    H.  HELP
+    or press [RETURN] to go back to main menu
+
+
+Your choice: 4
+
+Enter name for PHYLIP     tree output file   [03.ph]: 
+
+Phylogenetic tree file created:   [03.ph]
+
+
+****** PHYLOGENETIC TREE MENU ******
+
+
+    1.  Input an alignment
+    2.  Exclude positions with gaps?        = OFF
+    3.  Correct for multiple substitutions? = OFF
+    4.  Draw tree now
+    5.  Bootstrap tree
+    6.  Output format options
+
+    S.  Execute a system command
+    H.  HELP
+    or press [RETURN] to go back to main menu
+
+
+Your choice: 
+
+
+
+ **************************************************************
+ ******** CLUSTAL W (1.83) Multiple Sequence Alignments  ********
+ **************************************************************
+
+
+     1. Sequence Input From Disc
+     2. Multiple Alignments
+     3. Profile / Structure Alignments
+     4. Phylogenetic trees
+
+     S. Execute a system command
+     H. HELP
+     X. EXIT (leave program)
+
+
+Your choice: x
+
+----
+
+=== Phylogentic Tree File Format
+
+The Newick Standard for representing trees in computer-readable form makes use of the correspondence between trees and nested parentheses, noticed in 1857 by the famous English mathematician Arthur Cayley. If we have this rooted tree: 
+
+----
+
+                         A                 D
+                          \         E     /
+                           \   C   /     /
+                            \  !  /     /
+                             \ ! /     /
+                        B     \!/     /
+                         \     o     /
+                          \    !    /
+                           \   !   /
+                            \  !  /
+                             \ ! /
+                              \!/
+                               o
+                               !
+                               !
+----
+
+
+Figure 4.1 : A rooted tree
+
+
+then in the tree file it is represented by the following sequence of printable characters, starting at the beginning of the file: 
+
+----
+(B,(A,C,E),D); 
+----
+
+The tree ends with a semicolon. Everything after the semicolon in the input file is ignored, including any other trees. The bottommost node in the tree is an interior node, not a tip. Interior nodes are represented by a pair of matched parentheses. Between them are representations of the nodes that are immediately descended from that node, separated by commas. In the above tree, the immediate descendants are B, another interior node, and D. The other interior node is represented by a pair of parentheses, enclosing representations of its immediate descendants, A, C, and E. 
+Tips are represented by their names. A name can be any string of printable characters except blanks, colons, semcolons, parentheses, and square brackets. Any name may not be empty: a tree like 
+
+----
+(,(,,),); 
+----
+
+is allowed but is not supported at present as it may confuse the parser.  Branch lengths can be incorporated into a tree by putting a real number, with or without decimal point, after a node and preceded by a colon. This represents the length of the branch immediately below that node. Thus the above tree might have lengths represented as: 
+
+----
+(B:6.0,(A:5.0,C:3.0,E:4.0):5.0,D:11.0); 
+----
+
+The above description is of a subset of the Newick Standard. For example, interior nodes can have names in that standard, but if any are included the present programs will omit them. 
+
+To help you understand this tree representation, here are some trees in the above form: 
+
+----
+((raccoon:19.19959,bear:6.80041):0.84600,((sea_lion:11.99700,
+seal:12.00300):7.52973,((monkey:100.85930,cat:47.14069):20.59201,
+weasel:18.87953):2.09460):3.87382,dog:25.46154);
+
+(Bovine:0.69395,(Gibbon:0.36079,(Orang:0.33636,(Gorilla:0.17147,(Chimp:0.19268,
+Human:0.11927):0.08386):0.06124):0.15057):0.54939,Mouse:1.21460);
+
+(Bovine:0.69395,(Hylobates:0.36079,(Pongo:0.33636,(G._Gorilla:0.17147,
+(P._paniscus:0.19268,H._sapiens:0.11927):0.08386):0.06124):0.15057):0.54939,
+Rodent:1.21460);
+----
+
+The Newick Standard was adopted June 26, 1986 by an informal committee meeting during the Society for the Study of Evolution meetings in Durham, New Hampshire and consisting of James Archie, William H.E. Day, Wayne Maddison, Christopher Meacham, F. James Rohlf, David Swofford, and others. A web page describing it will be found at http://evolution.gs.washington.edu/phylip/newicktree.html. 
+
+=== Converting the Phylogenetic Tree and viewing it in 3D
+
+Converting the Phylogenetic Tree from the above representation to a 3D viewable format use this command:
+
+----
+[saleem@tux-dna dna]$ ./ph2iv 03.ph > 03.iv
+----
+
+Now the file generated 03.iv is viewed using the following command
+
+----
+[saleem@tux-dna dna]$ ./ev-iv 03.iv
+----
+
+=== Conversion of file .ph to .iv
+
+The phylogenetic tree file (.ph) is first parsed using the DFA for the input file format which is shown in the figure.  The parsed input is then stored into an in-memory data structure called tree.  This in-memory representation of the tree is then finally converted into the nodes, materials, and transformations ( translation, rotation and scaling ) etc. and simultaneously written as output.
+
+image::images/dfa.png[DFA]
+
+Figure 4.2: DFA for parsing the phylogenetic tree file (.ph)
+
+[width="80%",options="header"]
+|=======
+| Edge | On Sybmol | Action
+| E1 | `e` – Epsilon | Start
+| E2 | `(` | Create Subtree 
+| E3 | Symbol other than `(` | Create a node
+| E4 | Symbol other than `:` | Collect the label of the node
+| E5 | `:` | Put the label into node
+| E6 | Symbols other than `:` and `,` | Collect weight of the node
+| E7 | `,` | Put the weight of current node and create a new sibling node
+| E8 | `)` | Put the weight of current node and go to parent
+| E9 | Symbols other than `:` and `,` | This means the input is malformed
+| E10 | `:` | Collect the weight of the node. Same as E6
+| E11 | `;` | End of input
+|=======
+
+Figure 4.3: Actions associated with the edges:
+
+image::images/tree-viewer.png[Tree Viewer]
+
+Figure 4.4: A tree being displayed using the 3D viewer 'ev-iv'.
+
+Using the Examiner Viewer
+
+ * Left Mouse Button : Rotate the whole tree about the origin
+ * Shift + Left Mouse Button : Move the whole tree on the X-Y plane
+ * Scroll Button : Zoom in or out
+ * Rotx : Rotation on the x axis
+ * Roty : Rotation on the yaxis
+ * Dolly : Zoom in or out
+ * Torch : Point and zoom any object on the viewport
+
+
+== Future Work
+
+There a lot of problems which need to be solved to make it really a worthwile software. Following is a list of tasks that need to be acomplished further:
+
+ * The whole 3D space needs to be efficiently utilized to make the realtime viewing without overlapping and providing a better interface
+ * The alignment and phylogenetic tree generation works fairly fast for few sequences and of smaller length. The high power computational facilities such as Linux Clusters should be used to scale the operation for huge data sets.
+ * Exploration and application varied classification method should applied to estimate better results.
+
+== References
+
+References 
+
+ * Bioinformatics Computing - by Bryan Bergeron
+ * CLUSTALW - http://www.microextreme.net/downloads.html
+ * Developing Bioinformatics Computer Skills – by Cynthia Gibas, Per Jambeck, Publisher: O'Reilly, First Edition April 2001
+ * The Inventor Mentor: Programming Object-Oriented 3D Graphics with Open Inventor™, Release 2
+ * SoQt Documentation, http://www.coin3d.org/
+

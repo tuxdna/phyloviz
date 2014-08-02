@@ -1,0 +1,3 @@
+ev-iv: ev-iv.cc
+	g++ $< -o $@ -lSoQt `pkg-config --cflags --libs qt-mt` `coin-config --cppflags --libs` -lXi
+
