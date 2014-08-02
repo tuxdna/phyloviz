@@ -76,6 +76,10 @@ The two executables have been built by now:
 
 Further details on using these tools is show in [documentation](doc/index.asciidoc) file. Please refer that document for "Generation and Visualization of Phylogenetic Trees".
 
+## Sample Data and other software
+
+You can find some sample data and other software at: http://tuxdna.in/files/bioinformatics/
+
 
 ## Debugging
 

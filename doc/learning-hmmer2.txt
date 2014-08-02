@@ -1,0 +1,80 @@
+There are currently nine programs supported in the HMMER 2 package:
+
+hmmalign - Align sequences to an existing model.
+hmmbuild - Build a model from a multiple sequence alignment.
+hmmcalibrate - Takes an HMM and empirically determines parameters that are used to make searches more sensitive, by calculating more accurate expectation value scores (E-values).
+hmmconvert - Convert a model ﬁle into different formats, including a compact HMMER 2 binary format, and “best effort” emulation of GCG proﬁles.
+hmmemit - Emit sequences probabilistically from a proﬁle HMM.
+hmmfetch - Get a single model from an HMM database.
+hmmindex - Index an HMM database.
+hmmpfam - Search an HMM database for matches to a query sequence.
+hmmsearch - Search a sequence database for matches to an HMM.
+
+Format of input alignment ﬁles:
+
+HMMER starts with a multiple sequence alignment ﬁle that you provide. HMMER can read alignments in several common formats, including the output of the CLUSTAL family of programs, Wisconsin/GCG MSF format, the input format for the PHYLIP phylogenetic analysis programs, and “aligned FASTA” format (where the sequences in a FASTA ﬁle contain gap symbols, so that they are all the same length). HMMER’s native alignment format is called Stockholm format, the format of the Pfam protein database that allows extensive markup and annotation. All these formats are documented in a later section. The software autodetects the alignment ﬁle format, so you don’t have to worry about it.
+
+
+Files used in the tutorial. The subdirectory /tutorial in the HMMER distribution contains the ﬁles used in the tutorial, as well as a
+number of examples of various ﬁle formats that HMMER reads. The important ﬁles for the tutorial are:-
+
+globins50.msf - An alignment ﬁle of 50 aligned globin sequences, in GCG MSF format.
+globins630.fa - A FASTA format ﬁle of 630 unaligned globin sequences.
+fn3.sto - An alignment ﬁle of ﬁbronectin type III domains, in Stockholm format. (From Pfam 8.0.)
+rrm.sto - An alignment ﬁle of RNA recognition motif domains, in Stockholm format. (From Pfam 8.0).
+rrm.hmm - An example HMM, built from rrm.sto
+pkinase.sto - An alignment ﬁle of protein kinase catalytic domains, in Stockholm format. (From Pfam 8.0).
+Artemia.fa - A FASTA ﬁle of brine shrimp globin, which contains nine tandemly repeated globin domains.
+7LES_DROME - A SWISSPROT ﬁle of the Drosophila Sevenless sequence, a receptor tyrosine kinase with multiple domains.
+RU1A_HUMAN - A SWISSPROT ﬁle of the human U1A protein sequence, which contains two RRM domains.
+
+build a proﬁle HMM with hmmbuild:
+> hmmbuild globin.hmm globins50.msf
+
+calibrate the proﬁle HMM with hmmcalibrate:
+> hmmcalibrate globin.hmm
+
+search the sequence database with hmmsearch:
+> hmmsearch globin.hmm Artemia.fa
+
+creating your own proﬁle HMM database:
+    > hmmbuild -F rrm.hmm rrm.sto
+    > hmmbuild fn3.hmm fn3.sto
+    > hmmbuild pkinase.hmm pkinase.sto
+    > cat rrm.hmm fn3.hmm pkinase.hmm > myhmms
+    > hmmcalibrate myhmms
+or:
+    > hmmbuild -A myhmms rrm.sto
+    > hmmbuild -A myhmms fn3.sto
+    > hmmbuild -A myhmms pkinase.sto
+    > hmmcalibrate myhmms
+
+parsing the domain structure of a sequence with hmmpfam:
+> hmmpfam myhmms 7LES DROME
+
+Creating and maintaining multiple alignments with hmmalign:
+> hmmalign -o globins630.ali globin.hmm globins630.fa
+
+
+
+sequence ﬁle formats:
+
+Unaligned sequence ﬁles are usually in FASTA format, but HMMER can read many common ﬁle formats including Genbank, EMBL, and SWISS-PROT format.
+    Aligned sequence ﬁles are expected to be in Stockholm format (HMMER’s native format, used by the Pfam and Rfam databases), but HMMER can read many common alignment formats including Clustal, GCG MSF, aligned FASTA, and Phylip format. It can also read a simple format (SELEX format) of one line per sequence, containing the name ﬁrst, followed by the aligned sequence. Alignment ﬁles can also be used where unaligned format ﬁles are required; the sequences will be read in one at a time and their gaps removed.
+    HMMER autodetects what format its input sequence ﬁles are in. You don’t have to worry about refor-matting sequences or setting options.
+    The autodetector is robust - so long as your ﬁle really is in one of the formats HMMER expects. If you pass HMMER a ﬁle that is not a sequence ﬁle, or is in an unexpected format, the autodetector may screw up. (SELEX format, for instance, is so permissive that many non-sequence ﬁles look like SELEX to the autodetector.) You can turn off the autodetector and manually specify an input sequence ﬁle format using the --informat option to many of the programs. This is particularly useful when driving HMMER with unattended scripts - you can increase the robustness of your annotation pipeline by specifying --informat fasta, for instance, so HMMER will be able to check that your ﬁles really are in FASTA format.
+
+using compressed ﬁles:
+
+HMMER will automatically read sequence ﬁles compressed with gzip, but you have to tell it what format the ﬁle is in: format autodetection doesn’t work on compressed ﬁles. For instance, if I have a compressed FASTA ﬁle of the nonredundant NCBI database as nr.gz, I can search it with:
+        > hmmsearch --informat fasta my.hmm nr.gz
+
+    HMMER simply reacts to the .gz sufﬁx to detect a gzip’ed ﬁle. You must have gzip installed and in your $PATH for this to work; HMMER simply invokes gzip -dc on the ﬁle, and starts reading the data from the resulting pipe.
+
+reading from pipes:
+
+HMMER can also read sequence data from standard input, through a pipe. Again (as with gzip’ed ﬁles) format autodetection doesn’t work, so you must specify the ﬁle format manually. To read from stdin, pass
+a - as the ﬁle name; for example, if I have a script that retrieves a bunch of FASTA records, and I want to search each retrieved sequence against a model, I could do:
+        > cool sequence fetching script.pl | hmmsearch --informat fasta my.hmm -
+
+

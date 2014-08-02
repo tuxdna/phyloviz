@@ -1,0 +1,15 @@
+PCP implements the following machine learning algorithms:
+· parametric classifiers (linear and quadratic)
+· least-squares (pseudo-inverse) linear discriminant
+· k-Nearest Neighbor (k-NN)
+· neural networks (Multi-Layer Perceptron, MLP)
+· Support Vector Machine (SVM) algorithm
+· model selection for SVM, MLP and k-NN
+· Bayes error estimation
+· cross-validation
+· bagging (committee) classification
+· Fisher's linear discriminant
+· dimensionality reduction using Singular Value Decomposition
+· Principal Component Analysis
+· feature subset selection using feature ranking, forward selection or backward elimination
+

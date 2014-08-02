@@ -1,0 +1,67 @@
+FASTA FORMAT:
+
+A sequence in FASTA format begins with a single-line description, followed by lines of sequence data. The description line is distinguished from the sequence data greater-than(">") symbol in the first column. An example sequence in FASTA format is:
+
+>MT dna:chromosome chromosome:NCBI36:MT:1:16571:1
+GATCACAGGTCTATCACCCTATTAACCACTCACGGGAGCTCTCCATGCATTTGGTATTTT
+CGTCTGGGGGGTGTGCACGCGATAGCATTGCGAGACGCTGGAGCCGGAGCACCCTATGTC
+GCAGTATCTGTCTTTGATTCCTGCCTCATTCTATTA
+
+Sequences which should be shorter than 80 characters in length, are expected to be represented in the standard International Union of Biochemistry-International Union of Pure and Applied Chemistry(IUB/UIUPAC) amino acid and nucleic acid codes, with these exceptions:
+
+- lower case letters are accepted and mapped into uppercase  letters
+- a single hyphen or a dash can be used to represent a gap of indeterminate length
+- and in amino acid sequences, U and * are acceptable letters
+
+Before submitting a request, any numerical digits in the query sequence should either be removed or replaced by appropriate letter codes (e.g. N for unknown nucleic acid residue or X for unknown amino acid residue).
+
+The nucleic acid codes supported are:
+
+A --> adenosine
+C --> cytidine
+G --> guanine
+T --> thymidine
+U --> uridine
+R --> G A (purine)
+Y --> T C (pyrimidine)
+K --> G T (keto)
+M --> A C (amino)
+S --> G C (strong)
+W --> A T (weak)
+B --> G T C
+D --> G A T
+H --> A C T
+V --> G C A
+N --> A G T C (any)
+- gap of indeterminate length
+
+
+For programs that use amino acids query sequences, such as BLASTP and TBLASTN, the accepted amino acid codes are:
+
+A alanine
+B asparate or asparagine
+C cystine
+D asparate
+E glutamate
+F phenylanaline
+G glycine
+H histidine
+I isoleucine
+K lysine
+L leucine
+M methionine
+N asparagine
+P proline
+Q glutamine
+R arginine
+S serine
+T threonine
+U selenocysteine
+V valine
+W tryptophan
+Y tyrosine
+Z glutamate or glutamine
+X any
+* translation stop
+- gap of indeterminate length
+

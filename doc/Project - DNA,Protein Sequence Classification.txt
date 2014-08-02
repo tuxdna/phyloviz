@@ -1,0 +1,56 @@
+MINOR PROJECT
+SEM VII
+
+SOME BACKGROUND:
+DNA is the basic matter for any activity in a living organism. Protein is composed of DNA itself. For any reaction Protein is present all the times. Everyday many DNA sequences are sequenced out and their properties are important for the the Biologists and Therapists. However the number of DNA sequences known is huge and proper classification of these sequences is very essential for various purposes. The classification helps one to look into only those sequences which are similar in behavoiur and features to those under consideration. Our effort is to create an automated software system that does the classification of these sequences.
+
+PROJECT:
+DNA/Protein Sequence Classification using ANN, Data Mining Techniques and BioInformatics Tools.
+
+AIM: To make a clasification system for efficient classification of DNA/Protein sequences using various methods and determinig the optimal cumulative classifacation values.
+
+Tools/Algorithms being Used:
+HMMER - Hidden Markov Model Sequence Classification, specifically for DNA/Protein sequences.
+PCP - Pattern Classification Program.  Includes various algorithms for general purpose classification aand feature discovery.
+PCP implements the following machine learning algorithms:
+  - parametric classifiers (linear and quadratic)
+  - least-squares (pseudo-inverse) linear discriminant
+  - k-Nearest Neighbor (k-NN)
+  - neural networks (Multi-Layer Perceptron, MLP)
+  - Support Vector Machine (SVM) algorithm
+  - model selection for SVM, MLP and k-NN
+  - Bayes error estimation
+  - cross-validation
+  - bagging (committee) classification
+  - Fisher's linear discriminant
+  - dimensionality reduction using Singular Value Decomposition
+  - Principal Component Analysis
+  - feature subset selection using feature ranking, forward selection or backward elimination
+
+Problems to be solved:
+COMMON INUPUT:
+Many data mining and classification methods accept discreet feature sets. Also the feature sets for various classes of data must match. This becomes a problem when dealing with DNA/Protein sequences as there is no discreete feature set for any DNA/Protein sequence ( by their nature ). HMM achieves this by doing the alignment of a set sequences and assumes the aligned portions as features by further applying various methods. Moreover there are about only two or three methods known for feature extraction for sequences and they dont even give satisfactory results.
+Our apporach is to define a module which does the feature extraction in discreete terms and passed this data to the classifier modules. At present, for the solutions to this roblem , we use 
+ i  - DNA triplet ( that forms a Protein)
+ ii - motif ( a very small sequence having meaning ) as a feature. Later when we get a better methods to serve as feature extrator, we can just change the modules and rest of the systems remains untouched.
+
+COMMON OUTPUT:
+All the algorithms give their output in different terms and it becomes a problem to estimate the relative value of the results obtained. Hence we are going to work for the common output in easily parsable file formats.
+
+INTERFACE:
+A common interface is to be made for easy and visual representaion of the analysis of the data being processed. It includes:
+  - commandline tools 
+  - common graphical interface
+  - representation of data interactively using graphs
+  - easily customizable weights of the results of various algorithm
+
+OTHER ASPECTS:
+As an extension of this project we will later plan to make use of the distributed computing environment as many calssification algorithms are computationally intensive and are parallel in nature.
+
+
+
+
+Saleem Ahmed Ansari
+B.Tech Comp., SEM VII
+Deptt. of Comp. Engg.
+Jamia Millia Islamia

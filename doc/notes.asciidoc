@@ -1,0 +1,22 @@
+DNA/Protein Classification System
+
+Notes: 
+
+Search Internet for following notes:
+
+ * clustalw phylogenetic tree file format
+ * to view a tree, you can use the RETREE or DRAWGRAM/DRAWTREE programs of PHYLIP
+
+The phylogenetic trees in Clustal W (the real trees that you calculate AFTER alignment; not the guide trees used to decide the branching order for multiple alignment) use the Neighbor-Joining method of Saitou and Nei based on a matrix of "distances" between all sequences.
+
+To see a list of all the command line parameters, type: 
+
+ * clustalw -options on UNIX
+ * clustalw /options on VMS,MAC and PC the programs of Vingron and Argos (1991) 
+
+TREES: DISTANCES:- The simplest measure of distance between sequences is percent divergence (100% minus percent identity).
+
+HMMER
+
+The original hmmt proﬁle HMM training program from HMMER 1 is also still available, from ftp://ftp.genetics.wustl.edu/pub/eddy/hmmer/hmmer-1.8.4.tar.Z. 
+

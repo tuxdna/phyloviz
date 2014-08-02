@@ -1,0 +1,938 @@
+Main Menu (Level 1)
+ a - Data  Loading...
+     a - Load dataset
+     	 Steps involved:
+	 Load training (0) or test (1) dataset [0]:
+	 File format: header line (0: no; 1: yes) [0]:
+	 File format: named rows (0: no; 1: yes) [0]:
+	 Enter number of classes:
+	 3
+	 Enter file name for class     1:
+	 iris_versicolor.dat
+	 Enter file name for class     2:
+	 iris_setosa.dat
+	 Enter file name for class     3:
+	 iris_virginica.dat
+	 
+     b - Status
+         Display the status of training data and test data:
+	 +------------------------------------------+
+	 |  T E S T   D A T A S E T                 |
+	 | Number of vectors:    150                |
+	 | Number of features:     4                |
+	 | Number of files:        3                |
+	 | File cardinalities:                      |
+	 | File iris_setosa.dat:    50 vectors.     |
+	 | File iris_versicolor.dat:    50 vectors. |
+	 | File iris_virginica.dat:    50 vectors.  |
+	 |                                          |
+	 +------------------------------------------+
+
+	 +------------------------------------------+
+	 |                                          |
+	 |  T R A I N I N G   D A T A S E T         |
+	 |                                          |
+	 | Number of vectors:    150                |
+	 | Number of features:     4                |
+	 | Number of classes:      3                |
+	 | Class cardinalities:                     |
+	 | Class iris_setosa.dat:    50 vectors.    |
+	 | Class iris_versicolor.dat:    50 vectors.|
+	 | Class iris_virginica.dat:    50 vectors. |
+	 |                                          |
+	 +------------------------------------------+
+
+	 
+     c - Display Dataset
+         Steps Involved:
+         Display training (0) or test (1) dataset [0]:
+	 +-----------------------------------------+
+	 |                                         |
+	 |  T R A I N I N G   D A T A S E T        |
+	 |                                         |
+	 +-----------------------------------------+
+	 
+     d - .....missing.......
+     e - Copy dataset
+         Steps involved:
+         Copy training set to test (0) or vice-versa (1) [0]:
+	  
+     f - Normalize dataset
+         Steps involved:
+         Replace current dataset(s) (1) or not (0) [0]:
+	 Use training dataset (1) or both (0) [0]:
+	 
+     g - Eigenvalues
+     	 Calculates and displays Eigenvalues:
+         +---------------------------------------------------------------+
+	 |                                                               |
+	 |    C L A S S   C O V A R I A N C E   M A T R I C E S          |
+	 |              EIGENVALUES AND CONDITION NUMBERS                |
+	 |                                                               |
+	 +---------------------------------------------------------------+
+	 | Class:        1 | Eigenvalue        1:      0.23646           |
+	 | Class:        1 | Eigenvalue        2:      0.03683           |
+	 | Class:        1 | Eigenvalue        3:     0.026616           |
+	 | Class:        1 | Eigenvalue        4:    0.0088406           |
+	 | Class:        1 | Condition number:          26.747           |
+	 +---------------------------------------------------------------+
+	 | Class:        2 | Eigenvalue        1:      0.48744           |
+	 | Class:        2 | Eigenvalue        2:     0.072619           |
+	 | Class:        2 | Eigenvalue        3:     0.051045           |
+	 | Class:        2 | Eigenvalue        4:    0.0095302           |
+	 | Class:        2 | Condition number:          51.147           |
+	 +---------------------------------------------------------------+
+	 | Class:        3 | Eigenvalue        1:      0.69525           |
+	 | Class:        3 | Eigenvalue        2:      0.10655           |
+	 | Class:        3 | Eigenvalue        3:     0.052295           |
+	 | Class:        3 | Eigenvalue        4:     0.034266           |
+	 | Class:        3 | Condition number:           20.29           |
+	 +---------------------------------------------------------------+
+
+	 
+     h - Covariance and Correlation
+         Display the covariance anf correlction
+	
+         Covariance matrix:
+	 row     0:      0.68569    -0.041781       1.2738      0.51773
+	 row     1:    -0.041781      0.19189     -0.33035     -0.12163
+	 row     2:       1.2738     -0.33035       3.1162       1.2985
+	 row     3:      0.51773     -0.12163       1.2985      0.58341
+	 Maximal element (    3)(    3):       3.1162
+
+	 Matrix of linear correlations:
+	 row     0:            1     -0.11518      0.87142      0.81856
+	 row     1:     -0.11518            1      -0.4272     -0.36351
+	 row     2:      0.87142      -0.4272            1      0.96305
+	 row     3:      0.81856     -0.36351      0.96305            1
+	 Maximal off-diagonal element (    3)(    4):      0.96305
+
+	 
+     x - Return
+     
+ b - Pattern Classification..
+     a - Bayes Error Estimation
+         a - True Leave-one-out Estimation
+	     
+	       First nearest neighbor [1]:
+
+	       Last nearest neighbor [49]:
+
+	       Enter seed for pseudo-random number generator [    1]:
+
+	       Calculating distances for vector       1.
+	       Calculating distances for vector       2.
+	       .
+	       .
+	       .
+	       Calculating distances for vector     147.
+	       Calculating distances for vector     148.
+	       Calculating distances for vector     149.
+	       Calculating distances for vector     150.
+	       Calculating neighbors from class       1.
+	       Calculating neighbors from class       2.
+	       Calculating neighbors from class       3.
+	       Calculating resubstitution error... done.
+	       Classifying vector          1, for all k.
+	       Classifying vector          2, for all k.
+	       .
+	       .
+	       .
+	       Classifying vector        146, for all k.
+	       Classifying vector        147, for all k.
+	       Classifying vector        148, for all k.
+	       Classifying vector        149, for all k.
+	       Classifying vector        150, for all k.
+
+	       
+	 b - Approximate Leave-one-out
+	     
+
+	      First nearest neighbor [1]:
+
+	       Last nearest neighbor [49]:
+
+	       Enter seed for pseudo-random number generator [    1]:
+
+	       Calculating distances for vector       1.
+	       Calculating distances for vector       2.
+	       .
+	       .
+	       .
+	       Calculating distances for vector     144.
+	       Calculating distances for vector     145.
+	       Calculating distances for vector     146.
+	       Calculating distances for vector     147.
+	       Calculating distances for vector     148.
+	       Calculating distances for vector     149.
+	       Calculating distances for vector     150.
+	       Calculating neighbors from class       1.
+	       Calculating neighbors from class       2.
+	       Calculating neighbors from class       3.
+	       Calculating resubstitution error... done.
+	       Classifying vector          1, for all k.
+	       Classifying vector          2, for all k.
+	       .
+	       .
+	       .
+	       Classifying vector        143, for all k.
+	       Classifying vector        144, for all k.
+	       Classifying vector        145, for all k.
+	       Classifying vector        146, for all k.
+	       Classifying vector        147, for all k.
+	       Classifying vector        148, for all k.
+	       Classifying vector        149, for all k.
+	       Classifying vector        150, for all k.
+
+	 c - Print Result
+	     
+	     Enter file name [pcp.bee]:
+
+	     +----------------------------------------------------------------------------+
+	     |                                                                            |
+	     |                B A Y E S   E R R O R   E S T I M A T I O N                 |
+	     |                                                                            |
+	     +----------------------------------------------------------------------------+
+	     |      k     | Leave-one-out error estimate  | Resubstitution error estimate |
+	     +----------------------------------------------------------------------------+
+	     |          1 |                          4.00 |                          0.00 |
+	     |          2 |                          6.00 |                          2.00 |
+	     |          3 |                          2.67 |                          1.33 |
+	     |          4 |                          2.67 |                          1.33 |
+	     |          5 |                          2.00 |                          1.33 |
+	     |          6 |                          2.67 |                          1.33 |
+	     |          7 |                          2.00 |                          1.33 |
+	     |          8 |                          1.33 |                          0.67 |
+	     |          9 |                          2.00 |                          0.67 |
+	     |         10 |                          2.00 |                          1.33 |
+	     |         11 |                          2.00 |                          0.67 |
+	     |         12 |                          2.00 |                          0.67 |
+	     |         13 |                          2.00 |                          0.67 |
+	     |         14 |                          2.00 |                          0.67 |
+	     |         15 |                          2.00 |                          1.33 |
+	     |         16 |                          2.67 |                          1.33 |
+	     |         17 |                          2.00 |                          1.33 |
+	     |         18 |                          2.00 |                          1.33 |
+	     |         19 |                          2.00 |                          1.33 |
+	     |         20 |                          2.00 |                          1.33 |
+	     |         21 |                          2.00 |                          1.33 |
+	     |         22 |                          2.00 |                          1.33 |
+	     |         23 |                          2.00 |                          1.33 |
+	     |         24 |                          2.67 |                          1.33 |
+	     |         25 |                          2.00 |                          1.33 |
+	     |         26 |                          2.67 |                          1.33 |
+	     |         27 |                          2.67 |                          1.33 |
+	     |         28 |                          2.67 |                          1.33 |
+	     |         29 |                          2.67 |                          1.33 |
+	     |         30 |                          2.67 |                          1.33 |
+	     |         31 |                          2.67 |                          1.33 |
+	     |         32 |                          2.67 |                          1.33 |
+	     |         33 |                          2.67 |                          1.33 |
+	     |         34 |                          2.67 |                          1.33 |
+	     |         35 |                          2.67 |                          1.33 |
+	     |         36 |                          3.33 |                          1.33 |
+	     |         37 |                          3.33 |                          0.67 |
+	     |         38 |                          2.67 |                          1.33 |
+	     |         39 |                          2.67 |                          0.67 |
+	     |         40 |                          0.67 |                          0.67 |
+	     |         41 |                          0.67 |                          0.67 |
+	     |         42 |                          3.33 |                          0.67 |
+	     |         43 |                          2.67 |                          1.33 |
+	     |         44 |                          2.00 |                          0.67 |
+	     |         45 |                          2.00 |                          0.67 |
+	     |         46 |                          2.00 |                          0.67 |
+	     |         47 |                          2.00 |                          1.33 |
+	     |         48 |                          2.00 |                          1.33 |
+	     |         49 |                          1.33 |                          1.33 |
+	     +----------------------------------------------------------------------------+
+
+
+	 x - Return
+
+     b - Parametric Classifiers
+         a - Linear Classifier
+	     a - Learning
+	         
+		 Enter the classifier file name [pcp.plc]:
+
+		 +----------------------------------------------------------------------------+
+		 |        Class         |  Actual/predicted card.  |        Error rate        |
+		 +----------------------------------------------------------------------------+
+		 |                      |          150/150         |    2.00% (     3/   150) |
+		 |   1/iris_setosa      |           50/50          |    0.00% (     0/    50) |
+		 |   2/iris_versicolor  |           50/49          |    4.00% (     2/    50) |
+		 |   3/iris_virginica   |           50/51          |    2.00% (     1/    50) |
+		 +----------------------------------------------------------------------------+
+		 | Vector |          Actual  class          |  Parametric linear prediction   |
+		 +----------------------------------------------------------------------------+
+		 |     71 | iris_versicolor                 | iris_virginica                  |
+		 |     84 | iris_versicolor                 | iris_virginica                  |
+		 |    134 | iris_virginica                  | iris_versicolor                 |
+		 +----------------------------------------------------------------------------+
+
+		 
+	     b - Bagging( Committee ) Learning
+	         
+		 Enter the classifier file name [pcp.plc]:
+
+		 Enter seed for pseudo-random number generator [    1]:
+
+		 Enter number of classifiers to combine (>= 1) [   10]:
+
+		 
+	     c - Prediction
+	         
+		 Short output:
+		 Enter parametric linear classifier file name [pcp.plc]:
+
+		 Short (0) or long (1) output [0]:
+
+		 +----------------------------------------------------------------------------+
+		 |        Class         |  Actual/predicted card.  |        Error rate        |
+		 +----------------------------------------------------------------------------+
+		 |                      |          150/150         |    2.00% (     3/   150) |
+		 |   1/iris_setosa      |           50/50          |    0.00% (     0/    50) |
+		 |   2/iris_versicolor  |           50/49          |    4.00% (     2/    50) |
+		 |   3/iris_virginica   |           50/51          |    2.00% (     1/    50) |
+		 +----------------------------------------------------------------------------+
+		 | Vector |          Actual  class          |  Parametric linear prediction   |
+		 +----------------------------------------------------------------------------+
+		 |     71 | iris_versicolor                 | iris_virginica                  |
+		 |     84 | iris_versicolor                 | iris_virginica                  |
+		 |    134 | iris_virginica                  | iris_versicolor                 |
+		 +----------------------------------------------------------------------------+
+
+		 Long Output:
+		 Enter parametric linear classifier file name [pcp.plc]:
+
+		 Short (0) or long (1) output [0]:
+		 1
+		 +----------------------------------------------------------------------------+
+		 |        Class         |  Actual/predicted card.  |        Error rate        |
+		 +----------------------------------------------------------------------------+
+		 |                      |          150/150         |    2.00% (     3/   150) |
+		 |   1/iris_setosa      |           50/50          |    0.00% (     0/    50) |
+		 |   2/iris_versicolor  |           50/49          |    4.00% (     2/    50) |
+		 |   3/iris_virginica   |           50/51          |    2.00% (     1/    50) |
+		 +----------------------------------------------------------------------------+
+		 | Vector |          Actual  class          |  Parametric linear prediction   |
+		 +----------------------------------------------------------------------------+
+		 |      1 | iris_setosa                     | iris_setosa                     |
+		 |      2 | iris_setosa                     | iris_setosa                     |
+		 |      3 | iris_setosa                     | iris_setosa                     |
+		 |      4 | iris_setosa                     | iris_setosa                     |
+		 |      5 | iris_setosa                     | iris_setosa                     |
+		 |      6 | iris_setosa                     | iris_setosa                     |
+		 |      7 | iris_setosa                     | iris_setosa                     |
+		 |      8 | iris_setosa                     | iris_setosa                     |
+		 |      9 | iris_setosa                     | iris_setosa                     |
+		 |     10 | iris_setosa                     | iris_setosa                     |
+		 |     11 | iris_setosa                     | iris_setosa                     |
+		 |     12 | iris_setosa                     | iris_setosa                     |
+		 |     13 | iris_setosa                     | iris_setosa                     |
+		 |     14 | iris_setosa                     | iris_setosa                     |
+		 |     15 | iris_setosa                     | iris_setosa                     |
+		 |     16 | iris_setosa                     | iris_setosa                     |
+		 |     17 | iris_setosa                     | iris_setosa                     |
+		 |     18 | iris_setosa                     | iris_setosa                     |
+		 |     19 | iris_setosa                     | iris_setosa                     |
+		 |     20 | iris_setosa                     | iris_setosa                     |
+		 |     21 | iris_setosa                     | iris_setosa                     |
+		 |     22 | iris_setosa                     | iris_setosa                     |
+		 |     23 | iris_setosa                     | iris_setosa                     |
+		 |     24 | iris_setosa                     | iris_setosa                     |
+		 |     25 | iris_setosa                     | iris_setosa                     |
+		 |     26 | iris_setosa                     | iris_setosa                     |
+		 |     27 | iris_setosa                     | iris_setosa                     |
+		 |     28 | iris_setosa                     | iris_setosa                     |
+		 |     29 | iris_setosa                     | iris_setosa                     |
+		 |     30 | iris_setosa                     | iris_setosa                     |
+		 |     31 | iris_setosa                     | iris_setosa                     |
+		 |     32 | iris_setosa                     | iris_setosa                     |
+		 |     33 | iris_setosa                     | iris_setosa                     |
+		 |     34 | iris_setosa                     | iris_setosa                     |
+		 |     35 | iris_setosa                     | iris_setosa                     |
+		 |     36 | iris_setosa                     | iris_setosa                     |
+		 |     37 | iris_setosa                     | iris_setosa                     |
+		 |     38 | iris_setosa                     | iris_setosa                     |
+		 |     39 | iris_setosa                     | iris_setosa                     |
+		 |     40 | iris_setosa                     | iris_setosa                     |
+		 |     41 | iris_setosa                     | iris_setosa                     |
+		 |     42 | iris_setosa                     | iris_setosa                     |
+		 |     43 | iris_setosa                     | iris_setosa                     |
+		 |     44 | iris_setosa                     | iris_setosa                     |
+		 |     45 | iris_setosa                     | iris_setosa                     |
+		 |     46 | iris_setosa                     | iris_setosa                     |
+		 |     47 | iris_setosa                     | iris_setosa                     |
+		 |     48 | iris_setosa                     | iris_setosa                     |
+		 |     49 | iris_setosa                     | iris_setosa                     |
+		 |     50 | iris_setosa                     | iris_setosa                     |
+		 |     51 | iris_versicolor                 | iris_versicolor                 |
+		 |     52 | iris_versicolor                 | iris_versicolor                 |
+		 |     53 | iris_versicolor                 | iris_versicolor                 |
+		 |     54 | iris_versicolor                 | iris_versicolor                 |
+		 |     55 | iris_versicolor                 | iris_versicolor                 |
+		 |     56 | iris_versicolor                 | iris_versicolor                 |
+		 |     57 | iris_versicolor                 | iris_versicolor                 |
+		 |     58 | iris_versicolor                 | iris_versicolor                 |
+		 |     59 | iris_versicolor                 | iris_versicolor                 |
+		 |     60 | iris_versicolor                 | iris_versicolor                 |
+		 |     61 | iris_versicolor                 | iris_versicolor                 |
+		 |     62 | iris_versicolor                 | iris_versicolor                 |
+		 |     63 | iris_versicolor                 | iris_versicolor                 |
+		 |     64 | iris_versicolor                 | iris_versicolor                 |
+		 |     65 | iris_versicolor                 | iris_versicolor                 |
+		 |     66 | iris_versicolor                 | iris_versicolor                 |
+		 |     67 | iris_versicolor                 | iris_versicolor                 |
+		 |     68 | iris_versicolor                 | iris_versicolor                 |
+		 |     69 | iris_versicolor                 | iris_versicolor                 |
+		 |     70 | iris_versicolor                 | iris_versicolor                 |
+		 |     71 | iris_versicolor                 | iris_virginica                  |
+		 |     72 | iris_versicolor                 | iris_versicolor                 |
+		 |     73 | iris_versicolor                 | iris_versicolor                 |
+		 |     74 | iris_versicolor                 | iris_versicolor                 |
+		 |     75 | iris_versicolor                 | iris_versicolor                 |
+		 |     76 | iris_versicolor                 | iris_versicolor                 |
+		 |     77 | iris_versicolor                 | iris_versicolor                 |
+		 |     78 | iris_versicolor                 | iris_versicolor                 |
+		 |     79 | iris_versicolor                 | iris_versicolor                 |
+		 |     80 | iris_versicolor                 | iris_versicolor                 |
+		 |     81 | iris_versicolor                 | iris_versicolor                 |
+		 |     82 | iris_versicolor                 | iris_versicolor                 |
+		 |     83 | iris_versicolor                 | iris_versicolor                 |
+		 |     84 | iris_versicolor                 | iris_virginica                  |
+		 |     85 | iris_versicolor                 | iris_versicolor                 |
+		 |     86 | iris_versicolor                 | iris_versicolor                 |
+		 |     87 | iris_versicolor                 | iris_versicolor                 |
+		 |     88 | iris_versicolor                 | iris_versicolor                 |
+		 |     89 | iris_versicolor                 | iris_versicolor                 |
+		 |     90 | iris_versicolor                 | iris_versicolor                 |
+		 |     91 | iris_versicolor                 | iris_versicolor                 |
+		 |     92 | iris_versicolor                 | iris_versicolor                 |
+		 |     93 | iris_versicolor                 | iris_versicolor                 |
+		 |     94 | iris_versicolor                 | iris_versicolor                 |
+		 |     95 | iris_versicolor                 | iris_versicolor                 |
+		 |     96 | iris_versicolor                 | iris_versicolor                 |
+		 |     97 | iris_versicolor                 | iris_versicolor                 |
+		 |     98 | iris_versicolor                 | iris_versicolor                 |
+		 |     99 | iris_versicolor                 | iris_versicolor                 |
+		 |    100 | iris_versicolor                 | iris_versicolor                 |
+		 |    101 | iris_virginica                  | iris_virginica                  |
+		 |    102 | iris_virginica                  | iris_virginica                  |
+		 |    103 | iris_virginica                  | iris_virginica                  |
+		 |    104 | iris_virginica                  | iris_virginica                  |
+		 |    105 | iris_virginica                  | iris_virginica                  |
+		 |    106 | iris_virginica                  | iris_virginica                  |
+		 |    107 | iris_virginica                  | iris_virginica                  |
+		 |    108 | iris_virginica                  | iris_virginica                  |
+		 |    109 | iris_virginica                  | iris_virginica                  |
+		 |    110 | iris_virginica                  | iris_virginica                  |
+		 |    111 | iris_virginica                  | iris_virginica                  |
+		 |    112 | iris_virginica                  | iris_virginica                  |
+		 |    113 | iris_virginica                  | iris_virginica                  |
+		 |    114 | iris_virginica                  | iris_virginica                  |
+		 |    115 | iris_virginica                  | iris_virginica                  |
+		 |    116 | iris_virginica                  | iris_virginica                  |
+		 |    117 | iris_virginica                  | iris_virginica                  |
+		 |    118 | iris_virginica                  | iris_virginica                  |
+		 |    119 | iris_virginica                  | iris_virginica                  |
+		 |    120 | iris_virginica                  | iris_virginica                  |
+		 |    121 | iris_virginica                  | iris_virginica                  |
+		 |    122 | iris_virginica                  | iris_virginica                  |
+		 |    123 | iris_virginica                  | iris_virginica                  |
+		 |    124 | iris_virginica                  | iris_virginica                  |
+		 |    125 | iris_virginica                  | iris_virginica                  |
+		 |    126 | iris_virginica                  | iris_virginica                  |
+		 |    127 | iris_virginica                  | iris_virginica                  |
+		 |    128 | iris_virginica                  | iris_virginica                  |
+		 |    129 | iris_virginica                  | iris_virginica                  |
+		 |    130 | iris_virginica                  | iris_virginica                  |
+		 |    131 | iris_virginica                  | iris_virginica                  |
+		 |    132 | iris_virginica                  | iris_virginica                  |
+		 |    133 | iris_virginica                  | iris_virginica                  |
+		 |    134 | iris_virginica                  | iris_versicolor                 |
+		 |    135 | iris_virginica                  | iris_virginica                  |
+		 |    136 | iris_virginica                  | iris_virginica                  |
+		 |    137 | iris_virginica                  | iris_virginica                  |
+		 |    138 | iris_virginica                  | iris_virginica                  |
+		 |    139 | iris_virginica                  | iris_virginica                  |
+		 |    140 | iris_virginica                  | iris_virginica                  |
+		 |    141 | iris_virginica                  | iris_virginica                  |
+		 |    142 | iris_virginica                  | iris_virginica                  |
+		 |    143 | iris_virginica                  | iris_virginica                  |
+		 |    144 | iris_virginica                  | iris_virginica                  |
+		 |    145 | iris_virginica                  | iris_virginica                  |
+		 |    146 | iris_virginica                  | iris_virginica                  |
+		 |    147 | iris_virginica                  | iris_virginica                  |
+		 |    148 | iris_virginica                  | iris_virginica                  |
+		 |    149 | iris_virginica                  | iris_virginica                  |
+		 |    150 | iris_virginica                  | iris_virginica                  |
+		 +----------------------------------------------------------------------------+
+		 
+	     d - Cross-validation
+	         
+
+		 Enter the classifier file name [pcp.xpl]:
+
+		 Enter number of cross-validation subsets (2..50) [   10]:
+
+		 Enter seed for pseudo-random number generator [    1]:
+
+		 Enter number of experiments [1]:
+		 10
+		 Use raw (0) or normalized data (1) [0]:
+
+		 Choose dim. reduction method: none (0), FLD (2), PCA (3), EMAP (4), feature ra
+		 nking (5), forward selection (6), or backward elimination (7) [0]:
+
+		 experiment     1; cross-validation subset  1; error rate:  0.00% (    0/   15)
+		 experiment     1; cross-validation subset  2; error rate:  0.00% (    0/   15)
+		 experiment     1; cross-validation subset  3; error rate:  0.00% (    0/   15)
+		 experiment     1; cross-validation subset  4; error rate: 13.33% (    2/   15)
+		 experiment     1; cross-validation subset  5; error rate:  0.00% (    0/   15)
+		 experiment     1; cross-validation subset  6; error rate:  0.00% (    0/   15)
+		 experiment     1; cross-validation subset  7; error rate:  0.00% (    0/   15)
+		 experiment     1; cross-validation subset  8; error rate:  0.00% (    0/   15)
+		 experiment     1; cross-validation subset  9; error rate:  0.00% (    0/   15)
+		 experiment     1; cross-validation subset 10; error rate:  6.67% (    1/   15)
+
+		 Average misclassification error rate:  2.00%
+		 experiment     2; cross-validation subset  1; error rate:  6.67% (    1/   15)
+		 experiment     2; cross-validation subset  2; error rate:  0.00% (    0/   15)
+		 experiment     2; cross-validation subset  3; error rate:  6.67% (    1/   15)
+		 experiment     2; cross-validation subset  4; error rate:  0.00% (    0/   15)
+		 experiment     2; cross-validation subset  5; error rate:  0.00% (    0/   15)
+		 experiment     2; cross-validation subset  6; error rate:  0.00% (    0/   15)
+		 experiment     2; cross-validation subset  7; error rate:  0.00% (    0/   15)
+		 experiment     2; cross-validation subset  8; error rate:  0.00% (    0/   15)
+		 experiment     2; cross-validation subset  9; error rate:  6.67% (    1/   15)
+		 experiment     2; cross-validation subset 10; error rate:  0.00% (    0/   15)
+
+		 Average misclassification error rate:  2.00%
+		 experiment     3; cross-validation subset  1; error rate:  6.67% (    1/   15)
+		 experiment     3; cross-validation subset  2; error rate:  0.00% (    0/   15)
+		 experiment     3; cross-validation subset  3; error rate:  6.67% (    1/   15)
+		 experiment     3; cross-validation subset  4; error rate:  0.00% (    0/   15)
+		 experiment     3; cross-validation subset  5; error rate:  6.67% (    1/   15)
+		 experiment     3; cross-validation subset  6; error rate:  0.00% (    0/   15)
+		 experiment     3; cross-validation subset  7; error rate:  0.00% (    0/   15)
+		 experiment     3; cross-validation subset  8; error rate:  0.00% (    0/   15)
+		 experiment     3; cross-validation subset  9; error rate:  0.00% (    0/   15)
+		 experiment     3; cross-validation subset 10; error rate:  0.00% (    0/   15)
+
+		 Average misclassification error rate:  2.00%
+		 experiment     4; cross-validation subset  1; error rate:  6.67% (    1/   15)
+		 experiment     4; cross-validation subset  2; error rate:  6.67% (    1/   15)
+		 experiment     4; cross-validation subset  3; error rate:  6.67% (    1/   15)
+		 experiment     4; cross-validation subset  4; error rate:  0.00% (    0/   15)
+		 experiment     4; cross-validation subset  5; error rate:  0.00% (    0/   15)
+		 experiment     4; cross-validation subset  6; error rate:  0.00% (    0/   15)
+		 experiment     4; cross-validation subset  7; error rate:  0.00% (    0/   15)
+		 experiment     4; cross-validation subset  8; error rate:  0.00% (    0/   15)
+		 experiment     4; cross-validation subset  9; error rate:  0.00% (    0/   15)
+		 experiment     4; cross-validation subset 10; error rate:  0.00% (    0/   15)
+
+		 Average misclassification error rate:  2.00%
+		 experiment     5; cross-validation subset  1; error rate:  0.00% (    0/   15)
+		 experiment     5; cross-validation subset  2; error rate:  0.00% (    0/   15)
+		 experiment     5; cross-validation subset  3; error rate:  0.00% (    0/   15)
+		 experiment     5; cross-validation subset  4; error rate:  0.00% (    0/   15)
+		 experiment     5; cross-validation subset  5; error rate:  0.00% (    0/   15)
+		 experiment     5; cross-validation subset  6; error rate:  6.67% (    1/   15)
+		 experiment     5; cross-validation subset  7; error rate:  0.00% (    0/   15)
+		 experiment     5; cross-validation subset  8; error rate:  0.00% (    0/   15)
+		 experiment     5; cross-validation subset  9; error rate:  6.67% (    1/   15)
+		 experiment     5; cross-validation subset 10; error rate:  6.67% (    1/   15)
+
+		 Average misclassification error rate:  2.00%
+		 experiment     6; cross-validation subset  1; error rate:  6.67% (    1/   15)
+		 experiment     6; cross-validation subset  2; error rate:  0.00% (    0/   15)
+		 experiment     6; cross-validation subset  3; error rate:  0.00% (    0/   15)
+		 experiment     6; cross-validation subset  4; error rate:  0.00% (    0/   15)
+		 experiment     6; cross-validation subset  5; error rate:  0.00% (    0/   15)
+		 experiment     6; cross-validation subset  6; error rate:  0.00% (    0/   15)
+		 experiment     6; cross-validation subset  7; error rate:  0.00% (    0/   15)
+		 experiment     6; cross-validation subset  8; error rate:  0.00% (    0/   15)
+		 experiment     6; cross-validation subset  9; error rate:  6.67% (    1/   15)
+		 experiment     6; cross-validation subset 10; error rate:  6.67% (    1/   15)
+
+		 Average misclassification error rate:  2.00%
+		 experiment     7; cross-validation subset  1; error rate:  0.00% (    0/   15)
+		 experiment     7; cross-validation subset  2; error rate:  6.67% (    1/   15)
+		 experiment     7; cross-validation subset  3; error rate:  0.00% (    0/   15)
+		 experiment     7; cross-validation subset  4; error rate:  0.00% (    0/   15)
+		 experiment     7; cross-validation subset  5; error rate:  0.00% (    0/   15)
+		 experiment     7; cross-validation subset  6; error rate:  0.00% (    0/   15)
+		 experiment     7; cross-validation subset  7; error rate:  0.00% (    0/   15)
+		 experiment     7; cross-validation subset  8; error rate:  0.00% (    0/   15)
+		 experiment     7; cross-validation subset  9; error rate:  6.67% (    1/   15)
+		 experiment     7; cross-validation subset 10; error rate:  6.67% (    1/   15)
+
+		 Average misclassification error rate:  2.00%
+		 experiment     8; cross-validation subset  1; error rate:  0.00% (    0/   15)
+		 experiment     8; cross-validation subset  2; error rate:  0.00% (    0/   15)
+		 experiment     8; cross-validation subset  3; error rate:  6.67% (    1/   15)
+		 experiment     8; cross-validation subset  4; error rate:  0.00% (    0/   15)
+		 experiment     8; cross-validation subset  5; error rate:  0.00% (    0/   15)
+		 experiment     8; cross-validation subset  6; error rate:  0.00% (    0/   15)
+		 experiment     8; cross-validation subset  7; error rate:  0.00% (    0/   15)
+		 experiment     8; cross-validation subset  8; error rate:  6.67% (    1/   15)
+		 experiment     8; cross-validation subset  9; error rate:  0.00% (    0/   15)
+		 experiment     8; cross-validation subset 10; error rate:  6.67% (    1/   15)
+
+		 Average misclassification error rate:  2.00%
+		 experiment     9; cross-validation subset  1; error rate:  0.00% (    0/   15)
+		 experiment     9; cross-validation subset  2; error rate:  0.00% (    0/   15)
+		 experiment     9; cross-validation subset  3; error rate:  6.67% (    1/   15)
+		 experiment     9; cross-validation subset  4; error rate:  6.67% (    1/   15)
+		 experiment     9; cross-validation subset  5; error rate:  0.00% (    0/   15)
+		 experiment     9; cross-validation subset  6; error rate:  0.00% (    0/   15)
+		 experiment     9; cross-validation subset  7; error rate:  0.00% (    0/   15)
+		 experiment     9; cross-validation subset  8; error rate:  0.00% (    0/   15)
+		 experiment     9; cross-validation subset  9; error rate:  0.00% (    0/   15)
+		 experiment     9; cross-validation subset 10; error rate:  6.67% (    1/   15)
+
+		 Average misclassification error rate:  2.00%
+		 experiment    10; cross-validation subset  1; error rate:  0.00% (    0/   15)
+		 experiment    10; cross-validation subset  2; error rate:  0.00% (    0/   15)
+		 experiment    10; cross-validation subset  3; error rate:  6.67% (    1/   15)
+		 experiment    10; cross-validation subset  4; error rate:  6.67% (    1/   15)
+		 experiment    10; cross-validation subset  5; error rate:  0.00% (    0/   15)
+		 experiment    10; cross-validation subset  6; error rate:  0.00% (    0/   15)
+		 experiment    10; cross-validation subset  7; error rate:  0.00% (    0/   15)
+		 experiment    10; cross-validation subset  8; error rate:  0.00% (    0/   15)
+		 experiment    10; cross-validation subset  9; error rate:  6.67% (    1/   15)
+		 experiment    10; cross-validation subset 10; error rate:  0.00% (    0/   15)
+
+		 Average misclassification error rate:  2.00%
+
+
+
+	     e - Bagging Cross-validation
+	         
+
+		 Enter the classifier file name [pcp.xpl]:
+
+		 Enter number of cross-validation subsets (2..50) [   10]:
+
+		 Enter number of classifiers to combine (>= 1) [   10]:
+
+		 Enter seed for pseudo-random number generator [    1]:
+
+		 Enter number of experiments [1]:
+		 10
+		 Use raw (0) or normalized data (1) [0]:
+		 1
+		 Choose dim. reduction method: none (0), FLD (2), PCA (3), EMAP (4), feature ra
+		 nking (5), forward selection (6), or backward elimination (7) [0]:
+
+		 experiment     1; cross-validation subset  1; error rate:  0.00% (    0/   15)
+		 experiment     1; cross-validation subset  2; error rate:  0.00% (    0/   15)
+		 experiment     1; cross-validation subset  3; error rate:  0.00% (    0/   15)
+		 experiment     1; cross-validation subset  4; error rate: 13.33% (    2/   15)
+		 experiment     1; cross-validation subset  5; error rate:  0.00% (    0/   15)
+		 experiment     1; cross-validation subset  6; error rate:  0.00% (    0/   15)
+		 experiment     1; cross-validation subset  7; error rate:  0.00% (    0/   15)
+		 experiment     1; cross-validation subset  8; error rate:  0.00% (    0/   15)
+		 experiment     1; cross-validation subset  9; error rate:  0.00% (    0/   15)
+		 experiment     1; cross-validation subset 10; error rate:  6.67% (    1/   15)
+
+		 Average misclassification error rate:  2.00%
+		 experiment     2; cross-validation subset  1; error rate:  0.00% (    0/   15)
+		 experiment     2; cross-validation subset  2; error rate:  0.00% (    0/   15)
+		 experiment     2; cross-validation subset  3; error rate:  0.00% (    0/   15)
+		 experiment     2; cross-validation subset  4; error rate:  0.00% (    0/   15)
+		 experiment     2; cross-validation subset  5; error rate:  6.67% (    1/   15)
+		 experiment     2; cross-validation subset  6; error rate:  6.67% (    1/   15)
+		 experiment     2; cross-validation subset  7; error rate:  0.00% (    0/   15)
+		 experiment     2; cross-validation subset  8; error rate:  0.00% (    0/   15)
+		 experiment     2; cross-validation subset  9; error rate:  0.00% (    0/   15)
+		 experiment     2; cross-validation subset 10; error rate:  6.67% (    1/   15)
+
+		 Average misclassification error rate:  2.00%
+		 experiment     3; cross-validation subset  1; error rate:  0.00% (    0/   15)
+		 experiment     3; cross-validation subset  2; error rate:  0.00% (    0/   15)
+		 experiment     3; cross-validation subset  3; error rate:  6.67% (    1/   15)
+		 experiment     3; cross-validation subset  4; error rate:  6.67% (    1/   15)
+		 experiment     3; cross-validation subset  5; error rate:  6.67% (    1/   15)
+		 experiment     3; cross-validation subset  6; error rate:  0.00% (    0/   15)
+		 experiment     3; cross-validation subset  7; error rate:  0.00% (    0/   15)
+		 experiment     3; cross-validation subset  8; error rate:  0.00% (    0/   15)
+		 experiment     3; cross-validation subset  9; error rate:  0.00% (    0/   15)
+		 experiment     3; cross-validation subset 10; error rate:  0.00% (    0/   15)
+
+		 Average misclassification error rate:  2.00%
+		 experiment     4; cross-validation subset  1; error rate:  0.00% (    0/   15)
+		 experiment     4; cross-validation subset  2; error rate:  6.67% (    1/   15)
+		 experiment     4; cross-validation subset  3; error rate:  6.67% (    1/   15)
+		 experiment     4; cross-validation subset  4; error rate:  0.00% (    0/   15)
+		 experiment     4; cross-validation subset  5; error rate:  0.00% (    0/   15)
+		 experiment     4; cross-validation subset  6; error rate:  0.00% (    0/   15)
+		 experiment     4; cross-validation subset  7; error rate:  0.00% (    0/   15)
+		 experiment     4; cross-validation subset  8; error rate:  0.00% (    0/   15)
+		 experiment     4; cross-validation subset  9; error rate:  0.00% (    0/   15)
+		 experiment     4; cross-validation subset 10; error rate:  6.67% (    1/   15)
+
+		 Average misclassification error rate:  2.00%
+		 experiment     5; cross-validation subset  1; error rate:  6.67% (    1/   15)
+		 experiment     5; cross-validation subset  2; error rate:  0.00% (    0/   15)
+		 experiment     5; cross-validation subset  3; error rate:  0.00% (    0/   15)
+		 experiment     5; cross-validation subset  4; error rate:  0.00% (    0/   15)
+		 experiment     5; cross-validation subset  5; error rate:  0.00% (    0/   15)
+		 experiment     5; cross-validation subset  6; error rate:  0.00% (    0/   15)
+		 experiment     5; cross-validation subset  7; error rate:  0.00% (    0/   15)
+		 experiment     5; cross-validation subset  8; error rate:  0.00% (    0/   15)
+		 experiment     5; cross-validation subset  9; error rate:  6.67% (    1/   15)
+		 experiment     5; cross-validation subset 10; error rate:  6.67% (    1/   15)
+
+		 Average misclassification error rate:  2.00%
+		 experiment     6; cross-validation subset  1; error rate:  6.67% (    1/   15)
+		 experiment     6; cross-validation subset  2; error rate:  0.00% (    0/   15)
+		 experiment     6; cross-validation subset  3; error rate:  0.00% (    0/   15)
+		 experiment     6; cross-validation subset  4; error rate:  0.00% (    0/   15)
+		 experiment     6; cross-validation subset  5; error rate:  0.00% (    0/   15)
+		 experiment     6; cross-validation subset  6; error rate: 13.33% (    2/   15)
+		 experiment     6; cross-validation subset  7; error rate:  0.00% (    0/   15)
+		 experiment     6; cross-validation subset  8; error rate:  0.00% (    0/   15)
+		 experiment     6; cross-validation subset  9; error rate:  0.00% (    0/   15)
+		 experiment     6; cross-validation subset 10; error rate:  0.00% (    0/   15)
+
+		 Average misclassification error rate:  2.00%
+		 experiment     7; cross-validation subset  1; error rate:  0.00% (    0/   15)
+		 experiment     7; cross-validation subset  2; error rate:  0.00% (    0/   15)
+		 experiment     7; cross-validation subset  3; error rate:  0.00% (    0/   15)
+		 experiment     7; cross-validation subset  4; error rate:  0.00% (    0/   15)
+		 experiment     7; cross-validation subset  5; error rate:  6.67% (    1/   15)
+		 experiment     7; cross-validation subset  6; error rate:  0.00% (    0/   15)
+		 experiment     7; cross-validation subset  7; error rate:  6.67% (    1/   15)
+		 experiment     7; cross-validation subset  8; error rate:  6.67% (    1/   15)
+		 experiment     7; cross-validation subset  9; error rate:  0.00% (    0/   15)
+		 experiment     7; cross-validation subset 10; error rate:  0.00% (    0/   15)
+
+		 Average misclassification error rate:  2.00%
+		 experiment     8; cross-validation subset  1; error rate: 13.33% (    2/   15)
+		 experiment     8; cross-validation subset  2; error rate:  0.00% (    0/   15)
+		 experiment     8; cross-validation subset  3; error rate:  0.00% (    0/   15)
+		 experiment     8; cross-validation subset  4; error rate:  0.00% (    0/   15)
+		 experiment     8; cross-validation subset  5; error rate:  0.00% (    0/   15)
+		 experiment     8; cross-validation subset  6; error rate:  6.67% (    1/   15)
+		 experiment     8; cross-validation subset  7; error rate:  0.00% (    0/   15)
+		 experiment     8; cross-validation subset  8; error rate:  0.00% (    0/   15)
+		 experiment     8; cross-validation subset  9; error rate:  0.00% (    0/   15)
+		 experiment     8; cross-validation subset 10; error rate:  0.00% (    0/   15)
+
+		 Average misclassification error rate:  2.00%
+		 experiment     9; cross-validation subset  1; error rate:  6.67% (    1/   15)
+		 experiment     9; cross-validation subset  2; error rate:  0.00% (    0/   15)
+		 experiment     9; cross-validation subset  3; error rate:  0.00% (    0/   15)
+		 experiment     9; cross-validation subset  4; error rate: 13.33% (    2/   15)
+		 experiment     9; cross-validation subset  5; error rate:  0.00% (    0/   15)
+		 experiment     9; cross-validation subset  6; error rate:  0.00% (    0/   15)
+		 experiment     9; cross-validation subset  7; error rate:  0.00% (    0/   15)
+		 experiment     9; cross-validation subset  8; error rate:  0.00% (    0/   15)
+		 experiment     9; cross-validation subset  9; error rate:  0.00% (    0/   15)
+		 experiment     9; cross-validation subset 10; error rate:  0.00% (    0/   15)
+
+		 Average misclassification error rate:  2.00%
+		 experiment    10; cross-validation subset  1; error rate:  0.00% (    0/   15)
+		 experiment    10; cross-validation subset  2; error rate:  0.00% (    0/   15)
+		 experiment    10; cross-validation subset  3; error rate:  0.00% (    0/   15)
+		 experiment    10; cross-validation subset  4; error rate:  0.00% (    0/   15)
+		 experiment    10; cross-validation subset  5; error rate:  0.00% (    0/   15)
+		 experiment    10; cross-validation subset  6; error rate:  0.00% (    0/   15)
+		 experiment    10; cross-validation subset  7; error rate:  0.00% (    0/   15)
+		 experiment    10; cross-validation subset  8; error rate:  6.67% (    1/   15)
+		 experiment    10; cross-validation subset  9; error rate:  6.67% (    1/   15)
+		 experiment    10; cross-validation subset 10; error rate:  6.67% (    1/   15)
+
+		 Average misclassification error rate:  2.00%
+
+
+
+	     f - Cross-validation Results
+	         
+		 Short Output:
+
+		 Enter cross-validation file name [pcp.xpl]:
+
+		 Short (0) or long (1) output [0]:
+
+		 +----------------------------------------------------------------------------+
+		 |                                                                            |
+		 |              C R O S S - V A L I D A T I O N   R E S U L T S               |
+		 |                                                                            |
+		 +----------------------------------------------------------------------------+
+		 | Classifier:                           parametric linear classifier         |
+		 | Number of models:                     10                                   |
+		 | Number of experiments:                10                                   |
+		 | Number of cross-validation subsets:   10                                   |
+		 | Normalization:                        yes                                  |
+		 | Dimensionality reduction method:      none                                 |
+		 | Seed:                                 1                                    |
+		 +----------------------------------------------------------------------------+
+		 +----------------------------------------------------------------------------+
+		 |            |                     Cumulative error rate                     |
+		 +----------------------------------------------------------------------------+
+		 |    Mean    |                         2.00                                  |
+		 | Std.  dev. |                         0.00                                  |
+		 +----------------------------------------------------------------------------+
+		 |            |        Error rate for class iris_setosa                       |
+		 +----------------------------------------------------------------------------+
+		 |    Mean    |                         0.00                                  |
+		 | Std.  dev. |                         0.00                                  |
+		 +----------------------------------------------------------------------------+
+		 |            |        Error rate for class iris_versicolor                   |
+		 +----------------------------------------------------------------------------+
+		 |    Mean    |                         4.00                                  |
+		 | Std.  dev. |                         0.00                                  |
+		 +----------------------------------------------------------------------------+
+		 |            |        Error rate for class iris_virginica                    |
+		 +----------------------------------------------------------------------------+
+		 |    Mean    |                         2.00                                  |
+		 | Std.  dev. |                         0.00                                  |
+		 +----------------------------------------------------------------------------+
+
+
+		 Long Output:
+		 Enter cross-validation file name [pcp.xpl]:
+
+		 Short (0) or long (1) output [0]:
+		 1
+		 +----------------------------------------------------------------------------+
+		 |                                                                            |
+		 |              C R O S S - V A L I D A T I O N   R E S U L T S               |
+		 |                                                                            |
+		 +----------------------------------------------------------------------------+
+		 | Classifier:                           parametric linear classifier         |
+		 | Number of models:                     10                                   |
+		 | Number of experiments:                10                                   |
+		 | Number of cross-validation subsets:   10                                   |
+		 | Normalization:                        yes                                  |
+		 | Dimensionality reduction method:      none                                 |
+		 | Seed:                                 1                                    |
+		 +----------------------------------------------------------------------------+
+		 +----------------------------------------------------------------------------+
+		 | Experiment |                     Cumulative error rate                     |
+		 +----------------------------------------------------------------------------+
+		 |      1     |                         2.00    (3/150)                       |
+		 |      2     |                         2.00    (3/150)                       |
+		 |      3     |                         2.00    (3/150)                       |
+		 |      4     |                         2.00    (3/150)                       |
+		 |      5     |                         2.00    (3/150)                       |
+		 |      6     |                         2.00    (3/150)                       |
+		 |      7     |                         2.00    (3/150)                       |
+		 |      8     |                         2.00    (3/150)                       |
+		 |      9     |                         2.00    (3/150)                       |
+		 |     10     |                         2.00    (3/150)                       |
+		 +----------------------------------------------------------------------------+
+		 |    Mean    |                         2.00                                  |
+		 | Std.  dev. |                         0.00                                  |
+		 +----------------------------------------------------------------------------+
+		 | Experiment |        Error rate for class iris_setosa                       |
+		 +----------------------------------------------------------------------------+
+		 |      1     |                         0.00     (0/50)                       |
+		 |      2     |                         0.00     (0/50)                       |
+		 |      3     |                         0.00     (0/50)                       |
+		 |      4     |                         0.00     (0/50)                       |
+		 |      5     |                         0.00     (0/50)                       |
+		 |      6     |                         0.00     (0/50)                       |
+		 |      7     |                         0.00     (0/50)                       |
+		 |      8     |                         0.00     (0/50)                       |
+		 |      9     |                         0.00     (0/50)                       |
+		 |     10     |                         0.00     (0/50)                       |
+		 +----------------------------------------------------------------------------+
+		 |    Mean    |                         0.00                                  |
+		 | Std.  dev. |                         0.00                                  |
+		 +----------------------------------------------------------------------------+
+		 | Experiment |        Error rate for class iris_versicolor                   |
+		 +----------------------------------------------------------------------------+
+		 |      1     |                         4.00     (2/50)                       |
+		 |      2     |                         4.00     (2/50)                       |
+		 |      3     |                         4.00     (2/50)                       |
+		 |      4     |                         4.00     (2/50)                       |
+		 |      5     |                         4.00     (2/50)                       |
+		 |      6     |                         4.00     (2/50)                       |
+		 |      7     |                         4.00     (2/50)                       |
+		 |      8     |                         4.00     (2/50)                       |
+		 |      9     |                         4.00     (2/50)                       |
+		 |     10     |                         4.00     (2/50)                       |
+		 +----------------------------------------------------------------------------+
+		 |    Mean    |                         4.00                                  |
+		 | Std.  dev. |                         0.00                                  |
+		 +----------------------------------------------------------------------------+
+		 | Experiment |        Error rate for class iris_virginica                    |
+		 +----------------------------------------------------------------------------+
+		 |      1     |                         2.00     (1/50)                       |
+		 |      2     |                         2.00     (1/50)                       |
+		 |      3     |                         2.00     (1/50)                       |
+		 |      4     |                         2.00     (1/50)                       |
+		 |      5     |                         2.00     (1/50)                       |
+		 |      6     |                         2.00     (1/50)                       |
+		 |      7     |                         2.00     (1/50)                       |
+		 |      8     |                         2.00     (1/50)                       |
+		 |      9     |                         2.00     (1/50)                       |
+		 |     10     |                         2.00     (1/50)                       |
+		 +----------------------------------------------------------------------------+
+		 |    Mean    |                         2.00                                  |
+		 | Std.  dev. |                         0.00                                  |
+		 +----------------------------------------------------------------------------+
+
+
+		 
+	     x - Return
+	     
+	 b - Quadratic Classifier
+	     a - Learning
+	         
+	         Enter the classifier file name [pcp.pqc]:
+
+		 +----------------------------------------------------------------------------+
+		 |        Class         |  Actual/predicted card.  |        Error rate        |
+		 +----------------------------------------------------------------------------+
+		 |                      |          150/150         |    2.00% (     3/   150) |
+		 |   1/iris_setosa      |           50/50          |    0.00% (     0/    50) |
+		 |   2/iris_versicolor  |           50/49          |    4.00% (     2/    50) |
+		 |   3/iris_virginica   |           50/51          |    2.00% (     1/    50) |
+		 +----------------------------------------------------------------------------+
+		 | Vector |          Actual  class          | Parametric quadratic prediction |
+		 +----------------------------------------------------------------------------+
+		 |     71 | iris_versicolor                 | iris_virginica                  |
+		 |     84 | iris_versicolor                 | iris_virginica                  |
+		 |    134 | iris_virginica                  | iris_versicolor                 |
+		 +----------------------------------------------------------------------------+
+
+		 
+	     b - Bagging( Committee ) Learning
+		 
+	     c - Prediction
+		 
+	     d - Cross-validation
+
+	     e - Bagging Cross-validation
+	         
+	     f - Cross-validation Results
+		 
+	     x - Return
+	     
+	 x - Return
+	 
+     c - Linear Discriminants
+     d - Nearest Neighbor Classifiers
+     e - Multi-Layer Perceptron
+     f - Support Vector Machines
+     x - Return
+
+ c - Feature Extraction...
+     a - Fisher's Linear Discriminant
+     b - Principal Component Analysis
+     c - E Mapping
+     d - Map Data Sets
+     x - Return
+ d - Feature Selection...
+     a - Select Feature Subset
+     b - Display Feature Subset
+     c - Subset Data Sets
+     x - Return
+     
+ x - Exit
+
