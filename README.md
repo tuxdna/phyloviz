@@ -26,6 +26,17 @@ Now invoke the clustalw program:
 
 ## How to build the visualization tools?
 
+On Fedora
+
+    $ sudo yum install SoQt-devel
+    $ cd path/to/phyloviz
+    [phyloviz] $ mkdir build
+    [phyloviz] $ cd build/
+    [phyloviz/build] $ cmake ../ -DCOIN3D_INCLUDE_DIRS=/usr/include/Coin2/
+
+
+
+
 On Ubuntu 14.04
 
     $ apt-get install cmake libsoqt-dev
@@ -33,9 +44,9 @@ On Ubuntu 14.04
 
 Now we will build two binaries:
 
-    phyloviz$ mkdir build
-    phyloviz$ cd build/
-    phyloviz/build$ cmake ../
+    [phyloviz] $ mkdir build
+    [phyloviz] $ cd build/
+    [phyloviz/build] $ cmake ../
     -- The C compiler identification is GNU 4.8.2
     -- The CXX compiler identification is GNU 4.8.2
     -- Check for working C compiler: /usr/bin/cc
@@ -60,7 +71,7 @@ Now we will build two binaries:
     -- Configuring done
     -- Generating done
     -- Build files have been written to: /home/saleem/work/learn/mine/phyloviz/build
-    phyloviz/build$ make
+    [phyloviz/build] $ make
     Scanning dependencies of target ev-iv
     [ 50%] Building CXX object CMakeFiles/ev-iv.dir/src/ev-iv/ev-iv.cc.o
     Linking CXX executable ev-iv
@@ -72,7 +83,7 @@ Now we will build two binaries:
 
 The two executables have been built by now:
 
-    phyloviz/build$ ls ph2iv ev-iv
+    [phyloviz/build] $ ls ph2iv ev-iv
 
 Further details on using these tools is show in [documentation](doc/index.asciidoc) file. Please refer that document for "Generation and Visualization of Phylogenetic Trees".
 
