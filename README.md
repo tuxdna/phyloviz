@@ -17,12 +17,12 @@ Download it:
 Unzip it to a folder
 
     tar zxf clustalw1.83.UNIX.tar.gz.tar
-	cd clustalw1.83
-	make
+    cd clustalw1.83
+    make
 
 Now invoke the clustalw program:
 
-	bin/clustalw
+        bin/clustalw
 
 ## How to build the visualization tools?
 
@@ -34,16 +34,10 @@ On Fedora
     [phyloviz] $ cd build/
     [phyloviz/build] $ cmake ../ -DCOIN3D_INCLUDE_DIRS=/usr/include/Coin2/
 
-
-
-
 On Ubuntu 14.04
 
     $ apt-get install cmake libsoqt-dev
     $ cd path/to/source/
-
-Now we will build two binaries:
-
     [phyloviz] $ mkdir build
     [phyloviz] $ cd build/
     [phyloviz/build] $ cmake ../
